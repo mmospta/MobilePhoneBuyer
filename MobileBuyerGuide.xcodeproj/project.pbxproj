@@ -7,27 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30F3091748669D271EADF75D /* Pods_MobileBuyerGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFFE671A84B2EE404D59178 /* Pods_MobileBuyerGuide.framework */; };
+		8DDB933E232F928D00313485 /* SceneListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9336232F928D00313485 /* SceneListStore.swift */; };
+		8DDB933F232F928D00313485 /* SceneListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9337232F928D00313485 /* SceneListPresenter.swift */; };
+		8DDB9340232F928D00313485 /* SceneListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9338232F928D00313485 /* SceneListWorker.swift */; };
+		8DDB9341232F928D00313485 /* SceneListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9339232F928D00313485 /* SceneListRouter.swift */; };
+		8DDB9342232F928D00313485 /* SceneListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB933A232F928D00313485 /* SceneListModels.swift */; };
+		8DDB9343232F928D00313485 /* SceneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB933B232F928D00313485 /* SceneListViewController.swift */; };
+		8DDB9344232F928D00313485 /* SceneListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB933C232F928D00313485 /* SceneListInteractor.swift */; };
+		8DDB934F232F92B300313485 /* SceneDetailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9347232F92B300313485 /* SceneDetailStore.swift */; };
+		8DDB9350232F92B300313485 /* SceneDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9348232F92B300313485 /* SceneDetailPresenter.swift */; };
+		8DDB9351232F92B300313485 /* SceneDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9349232F92B300313485 /* SceneDetailWorker.swift */; };
+		8DDB9352232F92B300313485 /* SceneDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB934A232F92B300313485 /* SceneDetailRouter.swift */; };
+		8DDB9353232F92B300313485 /* SceneDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB934B232F92B300313485 /* SceneDetailModels.swift */; };
+		8DDB9354232F92B300313485 /* SceneDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB934C232F92B300313485 /* SceneDetailViewController.swift */; };
+		8DDB9355232F92B300313485 /* SceneDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB934D232F92B300313485 /* SceneDetailInteractor.swift */; };
+		8DDB9356232F92B300313485 /* SceneDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB934E232F92B300313485 /* SceneDetailEntity.swift */; };
+		8DDB9358232F974200313485 /* SceneListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DDB9357232F974200313485 /* SceneListStoryboard.storyboard */; };
+		8DDB935A232F975900313485 /* SceneDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DDB9359232F975900313485 /* SceneDetailStoryboard.storyboard */; };
 		AE896C0D22F17400002F80DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE896C0C22F17400002F80DF /* AppDelegate.swift */; };
 		AE896C0F22F17400002F80DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE896C0E22F17400002F80DF /* ViewController.swift */; };
-		AE896C1222F17400002F80DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE896C1022F17400002F80DF /* Main.storyboard */; };
 		AE896C1422F17401002F80DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE896C1322F17401002F80DF /* Assets.xcassets */; };
 		AE896C1722F17401002F80DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE896C1522F17401002F80DF /* LaunchScreen.storyboard */; };
-		AE896C2322F17C2F002F80DF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE896C2022F17C2F002F80DF /* Alamofire.framework */; };
-		AE896C2422F17C2F002F80DF /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE896C2122F17C2F002F80DF /* AlamofireImage.framework */; };
-		AE896C2522F17C2F002F80DF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE896C2222F17C2F002F80DF /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8BFFE671A84B2EE404D59178 /* Pods_MobileBuyerGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileBuyerGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DDB9336232F928D00313485 /* SceneListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListStore.swift; sourceTree = "<group>"; };
+		8DDB9337232F928D00313485 /* SceneListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListPresenter.swift; sourceTree = "<group>"; };
+		8DDB9338232F928D00313485 /* SceneListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListWorker.swift; sourceTree = "<group>"; };
+		8DDB9339232F928D00313485 /* SceneListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListRouter.swift; sourceTree = "<group>"; };
+		8DDB933A232F928D00313485 /* SceneListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListModels.swift; sourceTree = "<group>"; };
+		8DDB933B232F928D00313485 /* SceneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListViewController.swift; sourceTree = "<group>"; };
+		8DDB933C232F928D00313485 /* SceneListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListInteractor.swift; sourceTree = "<group>"; };
+		8DDB9347232F92B300313485 /* SceneDetailStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailStore.swift; sourceTree = "<group>"; };
+		8DDB9348232F92B300313485 /* SceneDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailPresenter.swift; sourceTree = "<group>"; };
+		8DDB9349232F92B300313485 /* SceneDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailWorker.swift; sourceTree = "<group>"; };
+		8DDB934A232F92B300313485 /* SceneDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailRouter.swift; sourceTree = "<group>"; };
+		8DDB934B232F92B300313485 /* SceneDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailModels.swift; sourceTree = "<group>"; };
+		8DDB934C232F92B300313485 /* SceneDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailViewController.swift; sourceTree = "<group>"; };
+		8DDB934D232F92B300313485 /* SceneDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailInteractor.swift; sourceTree = "<group>"; };
+		8DDB934E232F92B300313485 /* SceneDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailEntity.swift; sourceTree = "<group>"; };
+		8DDB9357232F974200313485 /* SceneListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SceneListStoryboard.storyboard; sourceTree = "<group>"; };
+		8DDB9359232F975900313485 /* SceneDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SceneDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		AE896C0922F17400002F80DF /* MobileBuyerGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileBuyerGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE896C0C22F17400002F80DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE896C0E22F17400002F80DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AE896C1122F17400002F80DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE896C1322F17401002F80DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE896C1622F17401002F80DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE896C1822F17401002F80DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE896C2022F17C2F002F80DF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		AE896C2122F17C2F002F80DF /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		AE896C2222F17C2F002F80DF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		B8357C91E56845AF1A8C59AB /* Pods-MobileBuyerGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileBuyerGuide.debug.xcconfig"; path = "Target Support Files/Pods-MobileBuyerGuide/Pods-MobileBuyerGuide.debug.xcconfig"; sourceTree = "<group>"; };
+		BB6E4C81D6CC9661D4244EFB /* Pods-MobileBuyerGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileBuyerGuide.release.xcconfig"; path = "Target Support Files/Pods-MobileBuyerGuide/Pods-MobileBuyerGuide.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,21 +68,60 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE896C2322F17C2F002F80DF /* Alamofire.framework in Frameworks */,
-				AE896C2422F17C2F002F80DF /* AlamofireImage.framework in Frameworks */,
-				AE896C2522F17C2F002F80DF /* SwiftyJSON.framework in Frameworks */,
+				30F3091748669D271EADF75D /* Pods_MobileBuyerGuide.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27D7F3F15F89CE209B06B60C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B8357C91E56845AF1A8C59AB /* Pods-MobileBuyerGuide.debug.xcconfig */,
+				BB6E4C81D6CC9661D4244EFB /* Pods-MobileBuyerGuide.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8DDB9334232F918B00313485 /* SceneList */ = {
+			isa = PBXGroup;
+			children = (
+				8DDB9357232F974200313485 /* SceneListStoryboard.storyboard */,
+				8DDB9336232F928D00313485 /* SceneListStore.swift */,
+				8DDB9337232F928D00313485 /* SceneListPresenter.swift */,
+				8DDB9338232F928D00313485 /* SceneListWorker.swift */,
+				8DDB9339232F928D00313485 /* SceneListRouter.swift */,
+				8DDB933A232F928D00313485 /* SceneListModels.swift */,
+				8DDB933B232F928D00313485 /* SceneListViewController.swift */,
+				8DDB933C232F928D00313485 /* SceneListInteractor.swift */,
+			);
+			path = SceneList;
+			sourceTree = "<group>";
+		};
+		8DDB9346232F929D00313485 /* SceneDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8DDB9347232F92B300313485 /* SceneDetailStore.swift */,
+				8DDB9348232F92B300313485 /* SceneDetailPresenter.swift */,
+				8DDB9349232F92B300313485 /* SceneDetailWorker.swift */,
+				8DDB934A232F92B300313485 /* SceneDetailRouter.swift */,
+				8DDB934B232F92B300313485 /* SceneDetailModels.swift */,
+				8DDB934C232F92B300313485 /* SceneDetailViewController.swift */,
+				8DDB934D232F92B300313485 /* SceneDetailInteractor.swift */,
+				8DDB934E232F92B300313485 /* SceneDetailEntity.swift */,
+				8DDB9359232F975900313485 /* SceneDetailStoryboard.storyboard */,
+			);
+			path = SceneDetail;
+			sourceTree = "<group>";
+		};
 		AE896C0022F17400002F80DF = {
 			isa = PBXGroup;
 			children = (
 				AE896C0B22F17400002F80DF /* MobileBuyerGuide */,
 				AE896C0A22F17400002F80DF /* Products */,
 				AE896C1F22F17C2F002F80DF /* Frameworks */,
+				27D7F3F15F89CE209B06B60C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,9 +136,10 @@
 		AE896C0B22F17400002F80DF /* MobileBuyerGuide */ = {
 			isa = PBXGroup;
 			children = (
+				8DDB9346232F929D00313485 /* SceneDetail */,
+				8DDB9334232F918B00313485 /* SceneList */,
 				AE896C0C22F17400002F80DF /* AppDelegate.swift */,
 				AE896C0E22F17400002F80DF /* ViewController.swift */,
-				AE896C1022F17400002F80DF /* Main.storyboard */,
 				AE896C1322F17401002F80DF /* Assets.xcassets */,
 				AE896C1522F17401002F80DF /* LaunchScreen.storyboard */,
 				AE896C1822F17401002F80DF /* Info.plist */,
@@ -80,6 +153,7 @@
 				AE896C2022F17C2F002F80DF /* Alamofire.framework */,
 				AE896C2122F17C2F002F80DF /* AlamofireImage.framework */,
 				AE896C2222F17C2F002F80DF /* SwiftyJSON.framework */,
+				8BFFE671A84B2EE404D59178 /* Pods_MobileBuyerGuide.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -91,10 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE896C1B22F17401002F80DF /* Build configuration list for PBXNativeTarget "MobileBuyerGuide" */;
 			buildPhases = (
+				0294BD640E83704B7AC08718 /* [CP] Check Pods Manifest.lock */,
 				AE896C0522F17400002F80DF /* Sources */,
 				AE896C0622F17400002F80DF /* Frameworks */,
 				AE896C0722F17400002F80DF /* Resources */,
-				AE896C1E22F17975002F80DF /* Carthage  */,
+				AAAA7909278B7296F5B0B269 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -143,34 +218,54 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DDB9358232F974200313485 /* SceneListStoryboard.storyboard in Resources */,
 				AE896C1722F17401002F80DF /* LaunchScreen.storyboard in Resources */,
 				AE896C1422F17401002F80DF /* Assets.xcassets in Resources */,
-				AE896C1222F17400002F80DF /* Main.storyboard in Resources */,
+				8DDB935A232F975900313485 /* SceneDetailStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AE896C1E22F17975002F80DF /* Carthage  */ = {
+		0294BD640E83704B7AC08718 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"$(SRCROOT)/input.xcfilelist",
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Carthage ";
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/output.xcfilelist",
+				"$(DERIVED_FILE_DIR)/Pods-MobileBuyerGuide-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAAA7909278B7296F5B0B269 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobileBuyerGuide/Pods-MobileBuyerGuide-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobileBuyerGuide/Pods-MobileBuyerGuide-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobileBuyerGuide/Pods-MobileBuyerGuide-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -180,6 +275,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE896C0F22F17400002F80DF /* ViewController.swift in Sources */,
+				8DDB9355232F92B300313485 /* SceneDetailInteractor.swift in Sources */,
+				8DDB9351232F92B300313485 /* SceneDetailWorker.swift in Sources */,
+				8DDB9352232F92B300313485 /* SceneDetailRouter.swift in Sources */,
+				8DDB9343232F928D00313485 /* SceneListViewController.swift in Sources */,
+				8DDB933F232F928D00313485 /* SceneListPresenter.swift in Sources */,
+				8DDB9344232F928D00313485 /* SceneListInteractor.swift in Sources */,
+				8DDB9340232F928D00313485 /* SceneListWorker.swift in Sources */,
+				8DDB9350232F92B300313485 /* SceneDetailPresenter.swift in Sources */,
+				8DDB934F232F92B300313485 /* SceneDetailStore.swift in Sources */,
+				8DDB9354232F92B300313485 /* SceneDetailViewController.swift in Sources */,
+				8DDB9356232F92B300313485 /* SceneDetailEntity.swift in Sources */,
+				8DDB9341232F928D00313485 /* SceneListRouter.swift in Sources */,
+				8DDB933E232F928D00313485 /* SceneListStore.swift in Sources */,
+				8DDB9342232F928D00313485 /* SceneListModels.swift in Sources */,
+				8DDB9353232F92B300313485 /* SceneDetailModels.swift in Sources */,
 				AE896C0D22F17400002F80DF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,14 +297,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AE896C1022F17400002F80DF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE896C1122F17400002F80DF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AE896C1522F17401002F80DF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -324,10 +426,11 @@
 		};
 		AE896C1C22F17401002F80DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8357C91E56845AF1A8C59AB /* Pods-MobileBuyerGuide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WF47643S5X;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -339,6 +442,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.scb.bootcamp.lab.MobileBuyerGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -346,10 +450,11 @@
 		};
 		AE896C1D22F17401002F80DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB6E4C81D6CC9661D4244EFB /* Pods-MobileBuyerGuide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WF47643S5X;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -361,6 +466,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.scb.bootcamp.lab.MobileBuyerGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

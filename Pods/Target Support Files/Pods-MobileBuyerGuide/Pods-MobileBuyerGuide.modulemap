@@ -1,0 +1,6 @@
+framework module Pods_MobileBuyerGuide {
+  umbrella header "Pods-MobileBuyerGuide-umbrella.h"
+
+  export *
+  module * { export * }
+}
