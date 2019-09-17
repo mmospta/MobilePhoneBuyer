@@ -75,3 +75,19 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     router.passDataToNextScene(segue: segue)
   }
 }
+
+extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "phoneListViewCell", for: indexPath) as! ListViewCell
+        cell.phoneNameLabel.text = "Myphone"
+        cell.priceLabel.text = "$165.80"
+        cell.ratingLabel.text = "5.0"
+        cell.phoneDescriptionLabel.text = "dfghujikol;lkjhgfdsfghjk,mnbvcxcvbnm,.,mnbvcxcfghjklkjhgfd"
+        return cell
+    }
+}
+

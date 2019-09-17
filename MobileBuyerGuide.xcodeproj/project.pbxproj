@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		30F3091748669D271EADF75D /* Pods_MobileBuyerGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFFE671A84B2EE404D59178 /* Pods_MobileBuyerGuide.framework */; };
 		8D1D2662233098670092DD8D /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D2661233098670092DD8D /* ListViewCell.swift */; };
+		8D1D26642330B1030092DD8D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D26632330B1030092DD8D /* APIManager.swift */; };
 		8DDB933E232F928D00313485 /* SceneListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9336232F928D00313485 /* SceneListStore.swift */; };
 		8DDB933F232F928D00313485 /* SceneListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9337232F928D00313485 /* SceneListPresenter.swift */; };
 		8DDB9340232F928D00313485 /* SceneListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9338232F928D00313485 /* SceneListWorker.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		8BFFE671A84B2EE404D59178 /* Pods_MobileBuyerGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileBuyerGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1D2661233098670092DD8D /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		8D1D26632330B1030092DD8D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		8DDB9336232F928D00313485 /* SceneListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListStore.swift; sourceTree = "<group>"; };
 		8DDB9337232F928D00313485 /* SceneListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListPresenter.swift; sourceTree = "<group>"; };
 		8DDB9338232F928D00313485 /* SceneListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListWorker.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				8DDB9334232F918B00313485 /* SceneList */,
 				AE896C0C22F17400002F80DF /* AppDelegate.swift */,
 				AE896C0E22F17400002F80DF /* ViewController.swift */,
+				8D1D26632330B1030092DD8D /* APIManager.swift */,
 				AE896C1322F17401002F80DF /* Assets.xcassets */,
 				AE896C1522F17401002F80DF /* LaunchScreen.storyboard */,
 				AE896C1822F17401002F80DF /* Info.plist */,
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE896C0F22F17400002F80DF /* ViewController.swift in Sources */,
+				8D1D26642330B1030092DD8D /* APIManager.swift in Sources */,
 				8DDB9355232F92B300313485 /* SceneDetailInteractor.swift in Sources */,
 				8DDB9351232F92B300313485 /* SceneDetailWorker.swift in Sources */,
 				8DDB9352232F92B300313485 /* SceneDetailRouter.swift in Sources */,

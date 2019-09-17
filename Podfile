@@ -9,4 +9,5 @@ target 'MobileBuyerGuide' do
   # Pods for MobileBuyerGuide
 pod 'Alamofire', '~> 5.0.0-beta.5'
 pod 'SwiftyJSON', '~> 5.0'
+pod 'Kingfisher', '~> 5.0' 
 end
