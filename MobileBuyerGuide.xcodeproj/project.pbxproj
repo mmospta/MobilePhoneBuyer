@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30F3091748669D271EADF75D /* Pods_MobileBuyerGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFFE671A84B2EE404D59178 /* Pods_MobileBuyerGuide.framework */; };
+		8D1D2662233098670092DD8D /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D2661233098670092DD8D /* ListViewCell.swift */; };
 		8DDB933E232F928D00313485 /* SceneListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9336232F928D00313485 /* SceneListStore.swift */; };
 		8DDB933F232F928D00313485 /* SceneListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9337232F928D00313485 /* SceneListPresenter.swift */; };
 		8DDB9340232F928D00313485 /* SceneListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9338232F928D00313485 /* SceneListWorker.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		8BFFE671A84B2EE404D59178 /* Pods_MobileBuyerGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileBuyerGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1D2661233098670092DD8D /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		8DDB9336232F928D00313485 /* SceneListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListStore.swift; sourceTree = "<group>"; };
 		8DDB9337232F928D00313485 /* SceneListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListPresenter.swift; sourceTree = "<group>"; };
 		8DDB9338232F928D00313485 /* SceneListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListWorker.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				8DDB933A232F928D00313485 /* SceneListModels.swift */,
 				8DDB933B232F928D00313485 /* SceneListViewController.swift */,
 				8DDB933C232F928D00313485 /* SceneListInteractor.swift */,
+				8D1D2661233098670092DD8D /* ListViewCell.swift */,
 			);
 			path = SceneList;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				8DDB933E232F928D00313485 /* SceneListStore.swift in Sources */,
 				8DDB9342232F928D00313485 /* SceneListModels.swift in Sources */,
 				8DDB9353232F92B300313485 /* SceneDetailModels.swift in Sources */,
+				8D1D2662233098670092DD8D /* ListViewCell.swift in Sources */,
 				AE896C0D22F17400002F80DF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
