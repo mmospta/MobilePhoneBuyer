@@ -14,13 +14,13 @@ protocol SceneListViewControllerInterface: class {
 }
 
 class SceneListViewController: UIViewController, SceneListViewControllerInterface {
+  
   var interactor: SceneListInteractorInterface!
   var router: SceneListRouter!
   var mobileListData: Phone = []
   
   @IBOutlet weak var tableView: UITableView!
-  
-  
+  @IBOutlet weak var segmentControl: UISegmentedControl!
   
   // MARK: - Object lifecycle
   
@@ -51,10 +51,28 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   override func viewDidLoad() {
     super.viewDidLoad()
     doSomethingOnLoad()
-    segmentedControl.backgroundColor = .clear
-    segmentedControl.tintColor = .clear
+    setupUISegmentControl()
   }
   
+  private func setupUISegmentControl() {
+    segmentControl.backgroundColor = .clear
+    segmentControl.tintColor = .clear
+    
+    segmentControl.setTitleTextAttributes([
+      NSAttributedString.Key.font : UIFont(name: "Helvetica Neue", size: 18),
+      NSAttributedString.Key.foregroundColor: UIColor.lightGray
+      ], for: .normal)
+    
+    segmentControl.setTitleTextAttributes([
+      NSAttributedString.Key.font : UIFont(name: "Helvetica Neue", size: 18),
+      NSAttributedString.Key.foregroundColor: UIColor.black
+      ], for: .selected)
+  }
+  
+  func clickFavouriteButton() {
+    
+    
+  }
   // MARK: - Event handling
   
   func doSomethingOnLoad() {
@@ -97,11 +115,7 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "phoneListViewCell", for: indexPath) as! ListViewCell
     let cellData = mobileListData[indexPath.row]
-    cell.phoneNameLabel.text = cellData.name
-    cell.priceLabel.text = String(cellData.price)
-    cell.ratingLabel.text = String(cellData.rating)
-    cell.phoneDescriptionLabel.text = String(cellData.phoneDescription)
-    cell.phoneImageView.kf.setImage(with: URL(string: cellData.thumbImageURL))
+    cell.configCell(phone: cellData)
     return cell
   }
   
