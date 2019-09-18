@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SceneListPresenterInterface {
-  func presentSomething(response: SceneList.Something.Response)
+  func presentSomething(response: SceneList.GetPhone.Response)
 }
 
 class SceneListPresenter: SceneListPresenterInterface {
@@ -17,10 +17,8 @@ class SceneListPresenter: SceneListPresenterInterface {
 
   // MARK: - Presentation logic
 
-  func presentSomething(response: SceneList.Something.Response) {
-    // NOTE: Format the response from the Interactor and pass the result back to the View Controller. The resulting view model should be using only primitive types. Eg: the view should not need to involve converting date object into a formatted string. The formatting is done here.
-
-    let viewModel = SceneList.Something.ViewModel()
+  func presentSomething(response: SceneList.GetPhone.Response) {
+    let viewModel = SceneList.GetPhone.ViewModel(passData: response.responseData)
     viewController.displaySomething(viewModel: viewModel)
   }
 }

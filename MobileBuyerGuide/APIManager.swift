@@ -10,50 +10,27 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-protocol APIManagerProtocol {
-    func getCountries(completion: @escaping (Swift.Result<[Country], Error>) -> Void)
-    func getArtistInfo(artistName: String, completion: @escaping (Swift.Result<[Track], Error>) -> Void)
+enum APIError: Error {
+    case invalidJSON
+    case invalidData
 }
 
-class APIManager: APIManagerProtocol {
-    let baseURL: String = "https://restcountries.eu/rest/v2"
-    static let shared: APIManager = APIManager()
-    
-    func getCountries(completion: @escaping (Swift.Result<[Country], Error>) -> Void) {
-        Alamofire.request("\(baseURL)/all")
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .success:
-                    do {
-                        let countries = try JSONDecoder().decode([Country].self, from: response.data!)
-                        completion(.success(countries))
-                    } catch (let error) {
-                        completion(.failure(error))
-                    }
-                case .failure(let error):
-                    completion(.failure(error))
+class APIManager {
+    func getPhones(completion: @escaping (Result<Phone>) -> Void) {
+        let urlString = "https://scb-test-mobile.herokuapp.com/api/mobiles/"
+        AF.request(urlString).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                do{
+                    let phone = try JSONDecoder().decode(Phone.self, from: response.data!)
+                    completion(.success(phone))
+                }catch{
+                    completion(.failure(APIError.invalidJSON))
                 }
-        }
-    }
     
-    func getArtistInfo(artistName: String, completion: @escaping (Swift.Result<[Track], Error>) -> Void) {
-        let baseURL: String = "http://54.251.183.191:3000/songlist"
-        Alamofire.request(baseURL)
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .success:
-                    do {
-                        let json = try JSON(data: response.data!)
-                        var tracks: [Track] = json["results"].arrayValue.flatMap({ Track(json: $0) })
-                        completion(.success(tracks))
-                    } catch (let error) {
-                        completion(.failure(error))
-                    }
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+            case .failure:
+                completion(.failure(APIError.invalidData))
+            }
         }
     }
 }

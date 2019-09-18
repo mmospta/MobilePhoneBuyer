@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SceneListStoreProtocol {
-  func getData(_ completion: @escaping (Result<Entity>) -> Void)
+  func getData(_ completion: @escaping (Result<Phone>) -> Void)
 }
 
 class SceneListWorker {
@@ -22,10 +22,9 @@ class SceneListWorker {
 
   // MARK: - Business Logic
 
-  func doSomeWork(_ completion: @escaping (Result<Entity>) -> Void) {
+  func doSomeWork(_ completion: @escaping (Result<Phone>) -> Void) {
     // NOTE: Do the work
     store.getData {
-      // The worker may perform some small business logic before returning the result to the Interactor
       completion($0)
     }
   }
