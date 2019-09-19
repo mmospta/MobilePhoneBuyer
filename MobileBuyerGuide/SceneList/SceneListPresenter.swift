@@ -9,16 +9,23 @@
 import UIKit
 
 protocol SceneListPresenterInterface {
-  func presentSomething(response: SceneList.GetPhone.Response)
+  func presentPhone(response: SceneList.GetPhone.Response)
+  func presentFavouriteId(response: SceneList.TapFavourite.Response)
 }
 
 class SceneListPresenter: SceneListPresenterInterface {
+  func presentFavouriteId(response: SceneList.TapFavourite.Response) {
+    let viewModel = SceneList.TapFavourite.ViewModel(favouriteId: response.favouriteId)
+    viewController.displayFavouriteId(viewModel: viewModel)
+  }
+
+  
   weak var viewController: SceneListViewControllerInterface!
 
   // MARK: - Presentation logic
 
-  func presentSomething(response: SceneList.GetPhone.Response) {
+  func presentPhone(response: SceneList.GetPhone.Response) {
     let viewModel = SceneList.GetPhone.ViewModel(passData: response.responseData)
-    viewController.displaySomething(viewModel: viewModel)
+    viewController.displayPhone(viewModel: viewModel)
   }
 }

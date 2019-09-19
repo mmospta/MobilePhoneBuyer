@@ -11,8 +11,8 @@
 		8D1D2662233098670092DD8D /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D2661233098670092DD8D /* ListViewCell.swift */; };
 		8D1D26672330BD700092DD8D /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D26662330BD700092DD8D /* Phone.swift */; };
 		8D1D26692330D9DF0092DD8D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D26682330D9DF0092DD8D /* APIManager.swift */; };
+		8D1D266B23323EA70092DD8D /* SceneListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D266A23323EA70092DD8D /* SceneListPresenter.swift */; };
 		8DDB933E232F928D00313485 /* SceneListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9336232F928D00313485 /* SceneListStore.swift */; };
-		8DDB933F232F928D00313485 /* SceneListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9337232F928D00313485 /* SceneListPresenter.swift */; };
 		8DDB9340232F928D00313485 /* SceneListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9338232F928D00313485 /* SceneListWorker.swift */; };
 		8DDB9341232F928D00313485 /* SceneListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9339232F928D00313485 /* SceneListRouter.swift */; };
 		8DDB9342232F928D00313485 /* SceneListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB933A232F928D00313485 /* SceneListModels.swift */; };
@@ -39,8 +39,8 @@
 		8D1D2661233098670092DD8D /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		8D1D26662330BD700092DD8D /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		8D1D26682330D9DF0092DD8D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		8D1D266A23323EA70092DD8D /* SceneListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneListPresenter.swift; sourceTree = "<group>"; };
 		8DDB9336232F928D00313485 /* SceneListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListStore.swift; sourceTree = "<group>"; };
-		8DDB9337232F928D00313485 /* SceneListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListPresenter.swift; sourceTree = "<group>"; };
 		8DDB9338232F928D00313485 /* SceneListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListWorker.swift; sourceTree = "<group>"; };
 		8DDB9339232F928D00313485 /* SceneListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListRouter.swift; sourceTree = "<group>"; };
 		8DDB933A232F928D00313485 /* SceneListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListModels.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 			children = (
 				8DDB9357232F974200313485 /* SceneListStoryboard.storyboard */,
 				8DDB9336232F928D00313485 /* SceneListStore.swift */,
-				8DDB9337232F928D00313485 /* SceneListPresenter.swift */,
+				8D1D266A23323EA70092DD8D /* SceneListPresenter.swift */,
 				8DDB9338232F928D00313485 /* SceneListWorker.swift */,
 				8DDB9339232F928D00313485 /* SceneListRouter.swift */,
 				8DDB933A232F928D00313485 /* SceneListModels.swift */,
@@ -297,7 +297,6 @@
 				8DDB9351232F92B300313485 /* SceneDetailWorker.swift in Sources */,
 				8DDB9352232F92B300313485 /* SceneDetailRouter.swift in Sources */,
 				8DDB9343232F928D00313485 /* SceneListViewController.swift in Sources */,
-				8DDB933F232F928D00313485 /* SceneListPresenter.swift in Sources */,
 				8DDB9344232F928D00313485 /* SceneListInteractor.swift in Sources */,
 				8DDB9340232F928D00313485 /* SceneListWorker.swift in Sources */,
 				8DDB9350232F92B300313485 /* SceneDetailPresenter.swift in Sources */,
@@ -311,6 +310,7 @@
 				8DDB9353232F92B300313485 /* SceneDetailModels.swift in Sources */,
 				8D1D2662233098670092DD8D /* ListViewCell.swift in Sources */,
 				AE896C0D22F17400002F80DF /* AppDelegate.swift in Sources */,
+				8D1D266B23323EA70092DD8D /* SceneListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

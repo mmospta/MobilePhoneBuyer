@@ -10,14 +10,16 @@ import UIKit
 import Kingfisher
 
 protocol SceneListViewControllerInterface: class {
-  func displaySomething(viewModel: SceneList.GetPhone.ViewModel)
+  func displayPhone(viewModel: SceneList.GetPhone.ViewModel)
+  func displayFavouriteId(viewModel: SceneList.TapFavourite.ViewModel)
 }
 
 class SceneListViewController: UIViewController, SceneListViewControllerInterface {
-  
+ 
   var interactor: SceneListInteractorInterface!
   var router: SceneListRouter!
   var mobileListData: Phone = []
+  var favouriteId: [Int] = []
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var segmentControl: UISegmentedControl!
@@ -79,20 +81,23 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     // NOTE: Ask the Interactor to do some work
     
     let request = SceneList.GetPhone.Request()
-    interactor.doSomething(request: request)
+    interactor.getPhone(request: request)
   }
   
   // MARK: - Display logic
   
-  func displaySomething(viewModel: SceneList.GetPhone.ViewModel) {
+  func displayPhone(viewModel: SceneList.GetPhone.ViewModel) {
     mobileListData = viewModel.passData
     tableView.reloadData()
-    
-    
     
     // NOTE: Display the result from the Presenter
     
     // nameTextField.text = viewModel.name
+  }
+  
+  func displayFavouriteId(viewModel: SceneList.TapFavourite.ViewModel) {
+    favouriteId = viewModel.favouriteId
+    tableView.reloadData()
   }
   
   // MARK: - Router
@@ -115,7 +120,11 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "phoneListViewCell", for: indexPath) as! ListViewCell
     let cellData = mobileListData[indexPath.row]
-    cell.configCell(phone: cellData)
+    cell.configCell(phone: cellData, favouriteId: favouriteId)
+    cell.favouriteButtonAction = {
+      let favouriteId: Int = cellData.id
+      self.interactor.favouriteButtonTapped(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
+    }
     return cell
   }
   

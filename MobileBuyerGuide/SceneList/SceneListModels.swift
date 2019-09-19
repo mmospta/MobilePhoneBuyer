@@ -21,8 +21,19 @@ struct SceneList {
     /// Data struct sent to ViewController
     struct ViewModel {
       let passData: Phone
-      
     }
-    
+  }
+  
+  struct TapFavourite {
+    struct Request {
+      let
+      favouriteId: Int
+    }
+    struct Response {
+      let favouriteId: [Int]
+    }
+    struct ViewModel {
+      let favouriteId: [Int]
+    }
   }
 }

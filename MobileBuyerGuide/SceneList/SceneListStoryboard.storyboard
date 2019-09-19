@@ -60,6 +60,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="icons8-star-96 (1)"/>
                                                     <state key="selected" image="icons8-star-96"/>
+                                                    <connections>
+                                                        <action selector="favouriteButton:" destination="Ahx-zg-F7i" eventType="touchUpInside" id="uxP-h4-LJN"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: 4.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcP-4z-X3X">
                                                     <rect key="frame" x="332" y="67" width="62" height="14.5"/>
@@ -94,7 +97,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="favouriteButton" destination="7Yo-ui-wDG" id="myU-Bu-Frl"/>
+                                            <outlet property="favouriteButton" destination="7Yo-ui-wDG" id="dxJ-8b-kbd"/>
                                             <outlet property="phoneDescriptionLabel" destination="M21-dI-aBc" id="dq0-K5-fPj"/>
                                             <outlet property="phoneImageView" destination="CcG-kh-TmX" id="9fm-e8-Iee"/>
                                             <outlet property="phoneNameLabel" destination="5k2-Gm-gmM" id="jq6-Qs-iBC"/>
