@@ -85,12 +85,12 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     case 0:
       print("case0: show all")
       let request = SceneList.GetPhone.Request()
-      interactor.segmentControlAll(request: request)
+      interactor.getAllData(request: request)
 
     case 1:
       print("case1: show favourite")
       let request = SceneList.GetPhone.Request()
-      interactor.segmentControlFavourite(request: request)
+      interactor.getFavouriteData(request: request)
     default:
       break;
     }

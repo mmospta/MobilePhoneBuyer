@@ -11,8 +11,8 @@ import UIKit
 protocol SceneListInteractorInterface {
   func getPhone(request: SceneList.GetPhone.Request)
   func favouriteButtonTapped(request: SceneList.TapFavourite.Request)
-  func segmentControlAll(request: SceneList.GetPhone.Request)
-  func segmentControlFavourite(request: SceneList.GetPhone.Request)
+  func getAllData(request: SceneList.GetPhone.Request)
+  func getFavouriteData(request: SceneList.GetPhone.Request)
 }
 
 class SceneListInteractor: SceneListInteractorInterface {
@@ -43,14 +43,16 @@ class SceneListInteractor: SceneListInteractorInterface {
     }
   }
   
-  func segmentControlAll(request: SceneList.GetPhone.Request) {
+  func getAllData(request: SceneList.GetPhone.Request) {
     let response = SceneList.GetPhone.Response(responseData: responseData)
     presenter.presentPhone(response: response)
   }
   
-  func segmentControlFavourite(request: SceneList.GetPhone.Request) {
+  func getFavouriteData(request: SceneList.GetPhone.Request) {
+    let favouriteData = responseData.filter { favouriteId.contains($0.id)}
+    print(favouriteData)
     
-    let response = SceneList.GetPhone.Response(responseData: mockData)
+    let response = SceneList.GetPhone.Response(responseData: favouriteData)
     presenter.presentPhone(response: response)
   }
   

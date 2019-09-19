@@ -98,7 +98,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8DDB9334232F918B00313485 /* SceneList */ = {
+		8D1D266C23338F240092DD8D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8DDB9346232F929D00313485 /* Detail */,
+				8DDB9334232F918B00313485 /* List */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8DDB9334232F918B00313485 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				8DDB9357232F974200313485 /* SceneListStoryboard.storyboard */,
@@ -111,10 +120,10 @@
 				8DDB933C232F928D00313485 /* SceneListInteractor.swift */,
 				8D1D2661233098670092DD8D /* ListViewCell.swift */,
 			);
-			path = SceneList;
+			path = List;
 			sourceTree = "<group>";
 		};
-		8DDB9346232F929D00313485 /* SceneDetail */ = {
+		8DDB9346232F929D00313485 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				8DDB9347232F92B300313485 /* SceneDetailStore.swift */,
@@ -127,7 +136,7 @@
 				8DDB934E232F92B300313485 /* SceneDetailEntity.swift */,
 				8DDB9359232F975900313485 /* SceneDetailStoryboard.storyboard */,
 			);
-			path = SceneDetail;
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		AE896C0022F17400002F80DF = {
@@ -151,11 +160,10 @@
 		AE896C0B22F17400002F80DF /* MobileBuyerGuide */ = {
 			isa = PBXGroup;
 			children = (
-				8D1D26682330D9DF0092DD8D /* APIManager.swift */,
+				8D1D266C23338F240092DD8D /* Scenes */,
 				8D1D26652330BD5D0092DD8D /* Model */,
-				8DDB9346232F929D00313485 /* SceneDetail */,
-				8DDB9334232F918B00313485 /* SceneList */,
 				AE896C0C22F17400002F80DF /* AppDelegate.swift */,
+				8D1D26682330D9DF0092DD8D /* APIManager.swift */,
 				AE896C0E22F17400002F80DF /* ViewController.swift */,
 				AE896C1322F17401002F80DF /* Assets.xcassets */,
 				AE896C1522F17401002F80DF /* LaunchScreen.storyboard */,
