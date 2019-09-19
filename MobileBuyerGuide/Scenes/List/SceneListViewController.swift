@@ -15,7 +15,7 @@ protocol SceneListViewControllerInterface: class {
 }
 
 class SceneListViewController: UIViewController, SceneListViewControllerInterface {
- 
+  
   var interactor: SceneListInteractorInterface!
   var router: SceneListRouter!
   var mobileListData: Phone = []
@@ -52,9 +52,11 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    doSomethingOnLoad()
+    getPhoneOnLoad()
     setupUISegmentControl()
   }
+  
+  // MARK: - Element Setup
   
   private func setupUISegmentControl() {
     segmentControl.backgroundColor = .clear
@@ -71,17 +73,27 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
       ], for: .selected)
   }
   
-  func clickFavouriteButton() {
-    
-    
-  }
   // MARK: - Event handling
   
-  func doSomethingOnLoad() {
-    // NOTE: Ask the Interactor to do some work
-    
+  func getPhoneOnLoad() {
     let request = SceneList.GetPhone.Request()
     interactor.getPhone(request: request)
+  }
+  
+  @IBAction func segmentControlChange(_ sender: Any) {
+    switch segmentControl.selectedSegmentIndex {
+    case 0:
+      print("case0: show all")
+      let request = SceneList.GetPhone.Request()
+      interactor.segmentControlAll(request: request)
+
+    case 1:
+      print("case1: show favourite")
+      let request = SceneList.GetPhone.Request()
+      interactor.segmentControlFavourite(request: request)
+    default:
+      break;
+    }
   }
   
   // MARK: - Display logic
@@ -89,10 +101,6 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   func displayPhone(viewModel: SceneList.GetPhone.ViewModel) {
     mobileListData = viewModel.passData
     tableView.reloadData()
-    
-    // NOTE: Display the result from the Presenter
-    
-    // nameTextField.text = viewModel.name
   }
   
   func displayFavouriteId(viewModel: SceneList.TapFavourite.ViewModel) {
@@ -111,6 +119,9 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     router.passDataToNextScene(segue: segue)
   }
 }
+
+
+// MARK: Extension
 
 extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

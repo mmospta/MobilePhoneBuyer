@@ -14,18 +14,18 @@ protocol SceneListPresenterInterface {
 }
 
 class SceneListPresenter: SceneListPresenterInterface {
-  func presentFavouriteId(response: SceneList.TapFavourite.Response) {
-    let viewModel = SceneList.TapFavourite.ViewModel(favouriteId: response.favouriteId)
-    viewController.displayFavouriteId(viewModel: viewModel)
-  }
-
   
   weak var viewController: SceneListViewControllerInterface!
-
+  
   // MARK: - Presentation logic
-
+  
   func presentPhone(response: SceneList.GetPhone.Response) {
     let viewModel = SceneList.GetPhone.ViewModel(passData: response.responseData)
     viewController.displayPhone(viewModel: viewModel)
+  }
+  
+  func presentFavouriteId(response: SceneList.TapFavourite.Response) {
+    let viewModel = SceneList.TapFavourite.ViewModel(favouriteId: response.favouriteId)
+    viewController.displayFavouriteId(viewModel: viewModel)
   }
 }

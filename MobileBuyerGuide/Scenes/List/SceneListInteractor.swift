@@ -11,6 +11,8 @@ import UIKit
 protocol SceneListInteractorInterface {
   func getPhone(request: SceneList.GetPhone.Request)
   func favouriteButtonTapped(request: SceneList.TapFavourite.Request)
+  func segmentControlAll(request: SceneList.GetPhone.Request)
+  func segmentControlFavourite(request: SceneList.GetPhone.Request)
 }
 
 class SceneListInteractor: SceneListInteractorInterface {
@@ -21,13 +23,13 @@ class SceneListInteractor: SceneListInteractorInterface {
   var responseData: Phone = []
   var mobileListDataFavourite: Phone = []
   var favouriteId: [Int] = []
-  
-  
+  var mockData: Phone = [PhoneElement(brand: "xiaomi", thumbImageURL: "", phoneDescription: "helllllllo", rating: 5.5, id: 1, price: 111, name: "assscascas")]
+  var favouriteData: Phone = []
   
   // MARK: - Business logic
   
   func getPhone(request: SceneList.GetPhone.Request) {
-    worker?.doSomeWork { [weak self] in
+    worker?.getPhone { [weak self] in
       if case let Result.success(data) = $0 {
         switch Result.success(data){
         case .success(let data):
@@ -35,15 +37,21 @@ class SceneListInteractor: SceneListInteractorInterface {
         case .failure:
           break
         }
-        
-        // If the result was successful, we keep the data so that we can deliver it to another view controller through the router.
-        
       }
-      
-      // NOTE: Pass the result to the Presenter. This is done by creating a response model with the result from the worker. The response could contain a type like UserResult enum (as declared in the SCB Easy project) with the result as an associated value.
       let response = SceneList.GetPhone.Response(responseData: self!.responseData)
       self?.presenter.presentPhone(response: response)
     }
+  }
+  
+  func segmentControlAll(request: SceneList.GetPhone.Request) {
+    let response = SceneList.GetPhone.Response(responseData: responseData)
+    presenter.presentPhone(response: response)
+  }
+  
+  func segmentControlFavourite(request: SceneList.GetPhone.Request) {
+    
+    let response = SceneList.GetPhone.Response(responseData: mockData)
+    presenter.presentPhone(response: response)
   }
   
   func favouriteButtonTapped(request: SceneList.TapFavourite.Request) {
@@ -56,7 +64,5 @@ class SceneListInteractor: SceneListInteractorInterface {
     let response = SceneList.TapFavourite.Response(favouriteId: favouriteId)
     presenter.presentFavouriteId(response: response)
   }
-  
-  
 }
 

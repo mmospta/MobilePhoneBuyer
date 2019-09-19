@@ -121,6 +121,9 @@
                                     <segment title="Favourite"/>
                                 </segments>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <action selector="segmentControlChange:" destination="slE-2T-nO6" eventType="valueChanged" id="b5K-45-MtJ"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

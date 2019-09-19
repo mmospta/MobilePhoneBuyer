@@ -13,17 +13,14 @@ protocol SceneListStoreProtocol {
 }
 
 class SceneListWorker {
-
+  
   var store: SceneListStoreProtocol
-
+  
   init(store: SceneListStoreProtocol) {
     self.store = store
   }
-
-  // MARK: - Business Logic
-
-  func doSomeWork(_ completion: @escaping (Result<Phone>) -> Void) {
-    // NOTE: Do the work
+  
+  func getPhone(_ completion: @escaping (Result<Phone>) -> Void) {
     store.getData {
       completion($0)
     }
