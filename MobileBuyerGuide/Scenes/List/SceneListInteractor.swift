@@ -23,8 +23,8 @@ class SceneListInteractor: SceneListInteractorInterface {
   var responseData: Phone = []
   var mobileListDataFavourite: Phone = []
   var favouriteId: [Int] = []
-  var mockData: Phone = [PhoneElement(brand: "xiaomi", thumbImageURL: "", phoneDescription: "helllllllo", rating: 5.5, id: 1, price: 111, name: "assscascas")]
   var favouriteData: Phone = []
+  var hiddenButton: Bool = false
   
   // MARK: - Business logic
   
@@ -38,21 +38,21 @@ class SceneListInteractor: SceneListInteractorInterface {
           break
         }
       }
-      let response = SceneList.GetPhone.Response(responseData: self!.responseData)
+      let response = SceneList.GetPhone.Response(responseData: self!.responseData, hiddenButton: self!.hiddenButton)
       self?.presenter.presentPhone(response: response)
     }
   }
   
   func getAllData(request: SceneList.GetPhone.Request) {
-    let response = SceneList.GetPhone.Response(responseData: responseData)
+    hiddenButton = false
+    let response = SceneList.GetPhone.Response(responseData: responseData, hiddenButton: hiddenButton)
     presenter.presentPhone(response: response)
   }
   
   func getFavouriteData(request: SceneList.GetPhone.Request) {
     let favouriteData = responseData.filter { favouriteId.contains($0.id)}
-    print(favouriteData)
-    
-    let response = SceneList.GetPhone.Response(responseData: favouriteData)
+    hiddenButton = true
+    let response = SceneList.GetPhone.Response(responseData: favouriteData, hiddenButton: hiddenButton)
     presenter.presentPhone(response: response)
   }
   
@@ -67,4 +67,3 @@ class SceneListInteractor: SceneListInteractorInterface {
     presenter.presentFavouriteId(response: response)
   }
 }
-

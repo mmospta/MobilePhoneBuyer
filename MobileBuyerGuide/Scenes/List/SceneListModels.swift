@@ -17,10 +17,12 @@ struct SceneList {
     /// Data struct sent to Presenter
     struct Response {
       let responseData: Phone
+      let hiddenButton: Bool
     }
     /// Data struct sent to ViewController
     struct ViewModel {
       let passData: Phone
+      let hiddenButton: Bool
     }
   }
   

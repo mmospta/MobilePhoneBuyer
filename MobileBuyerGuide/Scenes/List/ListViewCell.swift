@@ -39,6 +39,7 @@ class ListViewCell: UITableViewCell{
   func hiddenFavouriteButton(bool: Bool) {
     favouriteButton.isHidden = bool
   }
+
   
   @IBAction func favouriteButton(_ sender: UIButton) {
     favouriteButtonAction?()

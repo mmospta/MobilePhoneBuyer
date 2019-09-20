@@ -20,7 +20,7 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   var router: SceneListRouter!
   var mobileListData: Phone = []
   var favouriteId: [Int] = []
-  var hiddenButton: Bool = false
+  var hiddenButton: Bool?
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var segmentControl: UISegmentedControl!
@@ -84,14 +84,10 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   @IBAction func segmentControlChange(_ sender: Any) {
     switch segmentControl.selectedSegmentIndex {
     case 0:
-      print("case0: show all")
-      hiddenButton = false
       let request = SceneList.GetPhone.Request()
       interactor.getAllData(request: request)
-
+      
     case 1:
-      print("case1: show favourite")
-      hiddenButton = true
       let request = SceneList.GetPhone.Request()
       interactor.getFavouriteData(request: request)
     default:
@@ -103,6 +99,7 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   
   func displayPhone(viewModel: SceneList.GetPhone.ViewModel) {
     mobileListData = viewModel.passData
+    hiddenButton = viewModel.hiddenButton
     tableView.reloadData()
   }
   
@@ -135,7 +132,7 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "phoneListViewCell", for: indexPath) as! ListViewCell
     let cellData = mobileListData[indexPath.row]
     cell.configCell(phone: cellData, favouriteId: favouriteId)
-    cell.hiddenFavouriteButton(bool: hiddenButton)
+    cell.hiddenFavouriteButton(bool: hiddenButton ?? false)
     cell.favouriteButtonAction = {
       let favouriteId: Int = cellData.id
       self.interactor.favouriteButtonTapped(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
@@ -144,7 +141,22 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      print("delete")
+      let favouriteId: Int = mobileListData[indexPath.row].id
+      print(favouriteId)
+      interactor.favouriteButtonTapped(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
+      self.mobileListData.remove(at: indexPath.row)
+      self.tableView.deleteRows(at: [indexPath], with: .automatic)
+      
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return hiddenButton ?? false
   }
 }
-
