@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class ListViewCell: UITableViewCell {
+class ListViewCell: UITableViewCell{
   
   var favouriteButtonAction: (() -> Void)?
   
@@ -34,6 +34,10 @@ class ListViewCell: UITableViewCell {
     }else{
       favouriteButton.isSelected = false
     }
+  }
+  
+  func hiddenFavouriteButton(bool: Bool) {
+    favouriteButton.isHidden = bool
   }
   
   @IBAction func favouriteButton(_ sender: UIButton) {

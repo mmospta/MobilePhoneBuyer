@@ -20,6 +20,7 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   var router: SceneListRouter!
   var mobileListData: Phone = []
   var favouriteId: [Int] = []
+  var hiddenButton: Bool = false
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var segmentControl: UISegmentedControl!
@@ -84,11 +85,13 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     switch segmentControl.selectedSegmentIndex {
     case 0:
       print("case0: show all")
+      hiddenButton = false
       let request = SceneList.GetPhone.Request()
       interactor.getAllData(request: request)
 
     case 1:
       print("case1: show favourite")
+      hiddenButton = true
       let request = SceneList.GetPhone.Request()
       interactor.getFavouriteData(request: request)
     default:
@@ -132,6 +135,7 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "phoneListViewCell", for: indexPath) as! ListViewCell
     let cellData = mobileListData[indexPath.row]
     cell.configCell(phone: cellData, favouriteId: favouriteId)
+    cell.hiddenFavouriteButton(bool: hiddenButton)
     cell.favouriteButtonAction = {
       let favouriteId: Int = cellData.id
       self.interactor.favouriteButtonTapped(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
