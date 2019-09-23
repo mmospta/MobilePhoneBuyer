@@ -27,3 +27,18 @@ struct PhoneElement: Codable {
 
 typealias Phone = [PhoneElement]
 
+
+struct DetailPhoneElement: Codable {
+  let id: Int
+  let url: String
+  let mobileID: Int
+  
+  enum CodingKeys: String, CodingKey {
+    case id, url
+    case mobileID = "mobile_id"
+  }
+}
+
+typealias DetailPhone = [DetailPhoneElement]
+
+

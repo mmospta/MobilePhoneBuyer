@@ -140,7 +140,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hUn-2J-au5">
-                        <barButtonItem key="rightBarButtonItem" title="Sort" style="plain" id="iX8-X8-LH6"/>
+                        <barButtonItem key="rightBarButtonItem" title="Sort" style="plain" id="iX8-X8-LH6">
+                            <connections>
+                                <action selector="sortButton:" destination="slE-2T-nO6" id="Dom-Te-XbH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

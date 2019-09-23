@@ -90,10 +90,44 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     case 1:
       let request = SceneList.GetPhone.Request()
       interactor.getFavouriteData(request: request)
+      
+      
+      
+      
     default:
       break;
     }
   }
+  
+  @IBAction func sortButton(_ sender: Any) {
+    let alertController = UIAlertController(title: "Sort", message: "", preferredStyle: .alert)
+    let action1 = UIAlertAction(title: "Price low to high", style: .default) { (action:UIAlertAction) in
+      let request = SceneList.GetPhone.Request()
+      self.interactor.getSortingPriceLowToHigh(request: request)
+    }
+    
+    let action2 = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
+      print("You've pressed cancel");
+    }
+    
+    let action3 = UIAlertAction(title: "Price high to low", style: .default) { (action:UIAlertAction) in
+      let request = SceneList.GetPhone.Request()
+      self.interactor.getSortingPriceHighToLow(request: request)
+    }
+    
+    let action4 = UIAlertAction(title: "Rating", style: .default) { (action:UIAlertAction) in
+      print("sorting by rating 5-1")
+      let request = SceneList.GetPhone.Request()
+      self.interactor.getSortingRating(request: request)
+    }
+    
+    alertController.addAction(action1)
+    alertController.addAction(action2)
+    alertController.addAction(action3)
+    alertController.addAction(action4)
+    self.present(alertController, animated: true, completion: nil)
+  }
+
   
   // MARK: - Display logic
   

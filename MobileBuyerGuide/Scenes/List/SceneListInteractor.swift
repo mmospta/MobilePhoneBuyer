@@ -13,6 +13,9 @@ protocol SceneListInteractorInterface {
   func favouriteButtonTapped(request: SceneList.TapFavourite.Request)
   func getAllData(request: SceneList.GetPhone.Request)
   func getFavouriteData(request: SceneList.GetPhone.Request)
+  func getSortingPriceLowToHigh(request: SceneList.GetPhone.Request)
+  func getSortingPriceHighToLow(request: SceneList.GetPhone.Request)
+  func getSortingRating(request: SceneList.GetPhone.Request)
 }
 
 class SceneListInteractor: SceneListInteractorInterface {
@@ -52,8 +55,37 @@ class SceneListInteractor: SceneListInteractorInterface {
   func getFavouriteData(request: SceneList.GetPhone.Request) {
     let favouriteData = responseData.filter { favouriteId.contains($0.id)}
     hiddenButton = true
+    
     let response = SceneList.GetPhone.Response(responseData: favouriteData, hiddenButton: hiddenButton)
     presenter.presentPhone(response: response)
+  }
+  
+  //////////////////////
+
+  //////////////////////
+  func getSortingPriceLowToHigh(request: SceneList.GetPhone.Request) {
+    responseData.sort(by: {$0.price < $1.price})
+//    favouriteData.sort(by: {$0.price < $1.price})
+    let response = SceneList.GetPhone.Response(responseData: self.responseData, hiddenButton: self.hiddenButton)
+    self.presenter.presentPhone(response: response)
+  }
+  
+  //////////////////////
+  //////////////////////
+  
+  func getSortingPriceHighToLow(request: SceneList.GetPhone.Request) {
+    responseData.sort(by: {$0.price > $1.price})
+//    favouriteData.sort(by: {$0.price > $1.price})
+    let response = SceneList.GetPhone.Response(responseData: self.responseData, hiddenButton: self.hiddenButton)
+    self.presenter.presentPhone(response: response)
+  }
+  
+  func getSortingRating(request: SceneList.GetPhone.Request) {
+
+    responseData.sort(by: {$0.rating > $1.rating})
+//    favouriteData.sort(by: {$0.rating > $1.rating})
+    let response = SceneList.GetPhone.Response(responseData: self.responseData, hiddenButton: self.hiddenButton)
+    self.presenter.presentPhone(response: response)
   }
   
   func favouriteButtonTapped(request: SceneList.TapFavourite.Request) {

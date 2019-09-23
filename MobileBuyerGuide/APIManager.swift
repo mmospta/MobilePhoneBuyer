@@ -33,4 +33,22 @@ class APIManager {
             }
         }
     }
+  
+  func getDetailPhone(completion: @escaping (Result<DetailPhone>) -> Void) {
+    let urlString = "https://scb-test-mobile.herokuapp.com/api/mobiles/\("mobileID")/images/"
+    AF.request(urlString).responseJSON { (response) in
+      switch response.result {
+      case .success:
+        do{
+          let detailPhone = try JSONDecoder().decode(DetailPhone.self, from: response.data!)
+          completion(.success(detailPhone))
+        }catch{
+          completion(.failure(APIError.invalidJSON))
+        }
+        
+      case .failure:
+        completion(.failure(APIError.invalidData))
+      }
+    }
+  }
 }
