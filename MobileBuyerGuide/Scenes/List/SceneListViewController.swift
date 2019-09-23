@@ -136,6 +136,7 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   func displayFavouriteId(viewModel: SceneList.TapFavourite.ViewModel) {
     favouriteId = viewModel.favouriteId
     tableView.reloadData()
+    
   }
   
   // MARK: - Router
@@ -171,7 +172,7 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+    
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
