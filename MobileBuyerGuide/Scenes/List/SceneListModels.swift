@@ -28,14 +28,25 @@ struct SceneList {
   
   struct TapFavourite {
     struct Request {
-      let
-      favouriteId: Int
+      let favouriteId: Int
     }
     struct Response {
       let favouriteId: [Int]
     }
     struct ViewModel {
       let favouriteId: [Int]
+    }
+  }
+  
+  struct TapSelectRow {
+    struct Request {
+      let mobileId: Int
+    }
+    struct Response {
+      let mobileId: Int
+    }
+    struct ViewModel {
+     
     }
   }
 }

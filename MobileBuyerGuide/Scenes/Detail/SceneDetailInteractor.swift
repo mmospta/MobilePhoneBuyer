@@ -11,12 +11,14 @@ import UIKit
 protocol SceneDetailInteractorInterface {
   func doSomething(request: SceneDetail.Something.Request)
   var model: Entity? { get }
+  var mobileId: Int {get set}
 }
 
 class SceneDetailInteractor: SceneDetailInteractorInterface {
   var presenter: SceneDetailPresenterInterface!
   var worker: SceneDetailWorker?
   var model: Entity?
+  var mobileId: Int = 0
 
   // MARK: - Business logic
 

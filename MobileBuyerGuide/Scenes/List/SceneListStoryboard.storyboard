@@ -150,11 +150,20 @@
                     <connections>
                         <outlet property="segmentControl" destination="far-3d-TEH" id="NJE-Dg-9fy"/>
                         <outlet property="tableView" destination="qxO-fA-4IU" id="snk-V9-oTI"/>
+                        <segue destination="2sV-ci-gyD" kind="show" identifier="DetailPhone" id="ttk-z0-Ogr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJM-fI-Tj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="889.85507246376824" y="-98.4375"/>
+        </scene>
+        <!--SceneDetailStoryboard-->
+        <scene sceneID="6zh-tF-zCP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SceneDetailStoryboard" id="2sV-ci-gyD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1q0-KB-lQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1537" y="-98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lc7-Xz-sJ4">

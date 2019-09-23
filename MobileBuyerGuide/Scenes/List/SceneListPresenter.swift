@@ -11,6 +11,8 @@ import UIKit
 protocol SceneListPresenterInterface {
   func presentPhone(response: SceneList.GetPhone.Response)
   func presentFavouriteId(response: SceneList.TapFavourite.Response)
+  func presentTapSelectRow(response: SceneList.TapSelectRow.Response)
+  
 }
 
 class SceneListPresenter: SceneListPresenterInterface {
@@ -28,4 +30,10 @@ class SceneListPresenter: SceneListPresenterInterface {
     let viewModel = SceneList.TapFavourite.ViewModel(favouriteId: response.favouriteId)
     viewController.displayFavouriteId(viewModel: viewModel)
   }
+  
+  func presentTapSelectRow(response: SceneList.TapSelectRow.Response) {
+    let viewModel = SceneList.TapSelectRow.ViewModel()
+    viewController.displayTapSelectRow(viewModel: viewModel)
+  }
+  
 }

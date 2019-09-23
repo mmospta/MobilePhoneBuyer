@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w1A-6Q-iaz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bbR-lF-x5N">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Scene Detail View Controller-->
         <scene sceneID="Suz-vI-96G">
             <objects>
-                <viewController storyboardIdentifier="DetailPhone" id="bbR-lF-x5N" sceneMemberID="viewController">
+                <viewController id="bbR-lF-x5N" customClass="SceneDetailViewController" customModule="MobileBuyerGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fkh-ck-rVv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nd-pD-1R9">
-                                <rect key="frame" x="0.0" y="88" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: 4.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ab-w8-s4o">
                                         <rect key="frame" x="10" y="5" width="83" height="21"/>
@@ -45,7 +45,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qha-lp-avh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="313.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="313.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yMD-hE-MxM">
                                     <size key="itemSize" width="50" height="50"/>
@@ -69,8 +69,8 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5E-fM-hpS">
-                                <rect key="frame" x="0.0" y="400" width="414" height="365.5"/>
-                                <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id vestibulum nibh, et semper metus. Maecenas maximus libero sapien, ac consectetur felis viverra quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi sollicitudin urna magna, a sagittis lectus venenatis ac. Duis rhoncus semper lacus quis vestibulum. Morbi quis lorem turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt metus vitae nulla congue, nec pretium eros pretium. Quisque at euismod ex. Suspendisse vitae velit eu libero scelerisque scelerisque pharetra ac urna. Praesent sollicitudin elit eget vestibulum vulputate. Morbi gravida aliquam facilisis. Ut tempor nisi leo, in condimentum dui sollicitudin et. Pellentesque nec augue pharetra, viverra velit at, tincidunt eros. Etiam luctus varius dolor ut vestibulum. Sed ornare eu ex quis condimentum.</mutableString>
+                                <rect key="frame" x="0.0" y="356" width="414" height="365.5"/>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id vestibulum nibh, et semper metus. Maecenas maximus libero sapien, ac consectetur felis viverra quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi sollicitudin urna magna, a sagittis lectus venenatis ac. Duis rhoncus semper lacus quis vestibulum. Morbi quis lorem turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt metus vitae nulla congue, nec pretium eros pretium. Quisque at euismod ex. Suspendisse vitae velit eu libero scelerisque scelerisque pharetra ac urna. Praesent sollicitudin elit eget vestibulum vulputate. Morbi gravida aliquam facilisis. Ut tempor nisi leo, in condimentum dui sollicitudin et. Pellentesque nec augue pharetra, viverra velit at, tincidunt eros. Etiam luctus varius dolor ut vestibulum. Sed ornare eu ex quis condimentum.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -96,25 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahd-7O-rPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="76.339285714285708"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="LvJ-PJ-QHQ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w1A-6Q-iaz" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aX0-jY-GSa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="bbR-lF-x5N" kind="relationship" relationship="rootViewController" id="vft-4o-TJR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="egi-yx-hcu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="168" y="76"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="76.339285714285708"/>
         </scene>
     </scenes>
 </document>

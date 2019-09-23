@@ -18,6 +18,8 @@ class SceneListRouter: SceneListRouterInput {
   // MARK: - Navigation
   
   func navigateToSomewhere() {
+    
+    viewController.performSegue(withIdentifier: "DetailPhone", sender: nil)
     // NOTE: Teach the router how to navigate to another scene. Some examples follow:
     
     // 1. Trigger a storyboard segue
@@ -40,15 +42,16 @@ class SceneListRouter: SceneListRouterInput {
   func passDataToNextScene(segue: UIStoryboardSegue) {
     // NOTE: Teach the router which scenes it can communicate with
     
-    if segue.identifier == "ShowSomewhereScene" {
+    if segue.identifier == "DetailPhone" {
       passDataToSomewhereScene(segue: segue)
     }
   }
   
   func passDataToSomewhereScene(segue: UIStoryboardSegue) {
+
     // NOTE: Teach the router how to pass data to the next scene
     
-    // let someWhereViewController = segue.destinationViewController as! SomeWhereViewController
-    // someWhereViewController.interactor.model = viewController.interactor.model
+    let someWhereViewController = segue.destination as! SceneDetailViewController
+     someWhereViewController.interactor.mobileId = viewController.interactor.mobileId
   }
 }

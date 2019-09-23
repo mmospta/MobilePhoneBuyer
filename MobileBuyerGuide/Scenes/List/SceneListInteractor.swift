@@ -16,6 +16,8 @@ protocol SceneListInteractorInterface {
   func getSortingPriceLowToHigh(request: SceneList.GetPhone.Request)
   func getSortingPriceHighToLow(request: SceneList.GetPhone.Request)
   func getSortingRating(request: SceneList.GetPhone.Request)
+  func tapSelectRow(request: SceneList.TapSelectRow.Request)
+  var mobileId: Int {get set}
 }
 
 class SceneListInteractor: SceneListInteractorInterface {
@@ -29,6 +31,7 @@ class SceneListInteractor: SceneListInteractorInterface {
   var favouriteData: Phone = []
   var hiddenButton: Bool = false
   var sortData: Phone = []
+  var mobileId: Int = 0
   
   // MARK: - Business logic
   
@@ -76,8 +79,7 @@ class SceneListInteractor: SceneListInteractorInterface {
     self.presenter.presentPhone(response: response)
   }
   
-  //////////////////////
-  //////////////////////
+  
   
   func getSortingPriceHighToLow(request: SceneList.GetPhone.Request) {
     switch hiddenButton {
@@ -122,4 +124,11 @@ class SceneListInteractor: SceneListInteractorInterface {
     let response = SceneList.TapFavourite.Response(favouriteId: favouriteId)
     presenter.presentFavouriteId(response: response)
   }
+  
+  func tapSelectRow(request: SceneList.TapSelectRow.Request) {
+    let response = SceneList.TapSelectRow.Response(mobileId: request.mobileId)
+    mobileId = request.mobileId
+    presenter.presentTapSelectRow(response: response)
+  }
+  
 }

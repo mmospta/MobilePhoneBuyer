@@ -12,6 +12,7 @@ import Kingfisher
 protocol SceneListViewControllerInterface: class {
   func displayPhone(viewModel: SceneList.GetPhone.ViewModel)
   func displayFavouriteId(viewModel: SceneList.TapFavourite.ViewModel)
+  func displayTapSelectRow(viewModel: SceneList.TapSelectRow.ViewModel)
 }
 
 class SceneListViewController: UIViewController, SceneListViewControllerInterface {
@@ -123,7 +124,7 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     alertController.addAction(action4)
     self.present(alertController, animated: true, completion: nil)
   }
-
+  
   
   // MARK: - Display logic
   
@@ -136,8 +137,13 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   func displayFavouriteId(viewModel: SceneList.TapFavourite.ViewModel) {
     favouriteId = viewModel.favouriteId
     tableView.reloadData()
-    
   }
+  
+  func displayTapSelectRow(viewModel: SceneList.TapSelectRow.ViewModel) {
+//    print("Tap Select Row ID = \(viewModel.mobileId)")
+      router.navigateToSomewhere()
+  }
+  
   
   // MARK: - Router
   
@@ -173,6 +179,9 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
+    let mobileId: Int = mobileListData[indexPath.row].id
+    let request = SceneList.TapSelectRow.Request(mobileId: mobileId)
+    interactor.tapSelectRow(request: request)
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -183,7 +192,6 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
       interactor.favouriteButtonTapped(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
       self.mobileListData.remove(at: indexPath.row)
       self.tableView.deleteRows(at: [indexPath], with: .automatic)
-      
     }
   }
   
