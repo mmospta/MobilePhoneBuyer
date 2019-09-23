@@ -91,9 +91,6 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
       let request = SceneList.GetPhone.Request()
       interactor.getFavouriteData(request: request)
       
-      
-      
-      
     default:
       break;
     }
@@ -116,7 +113,6 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     }
     
     let action4 = UIAlertAction(title: "Rating", style: .default) { (action:UIAlertAction) in
-      print("sorting by rating 5-1")
       let request = SceneList.GetPhone.Request()
       self.interactor.getSortingRating(request: request)
     }
