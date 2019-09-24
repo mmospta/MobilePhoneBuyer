@@ -46,7 +46,7 @@ struct SceneList {
       let responseData: PhoneElement
     }
     struct ViewModel {
-     
+      
     }
   }
 }

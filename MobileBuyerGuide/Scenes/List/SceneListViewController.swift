@@ -140,8 +140,8 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   }
   
   func displayTapSelectRow(viewModel: SceneList.TapSelectRow.ViewModel) {
-//    print("Tap Select Row ID = \(viewModel.mobileId)")
-      router.navigateToSomewhere()
+    //    print("Tap Select Row ID = \(viewModel.mobileId)")
+    router.navigateToSomewhere()
   }
   
   

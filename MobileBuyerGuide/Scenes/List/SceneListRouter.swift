@@ -48,10 +48,10 @@ class SceneListRouter: SceneListRouterInput {
   }
   
   func passDataToSomewhereScene(segue: UIStoryboardSegue) {
-
+    
     // NOTE: Teach the router how to pass data to the next scene
     
     let someWhereViewController = segue.destination as! SceneDetailViewController
-     someWhereViewController.interactor.mobileDataAtRow = viewController.interactor.mobileDataAtRow
+    someWhereViewController.interactor.mobileDataAtRow = viewController.interactor.mobileDataAtRow
   }
 }

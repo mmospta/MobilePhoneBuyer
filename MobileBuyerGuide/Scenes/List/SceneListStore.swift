@@ -12,7 +12,7 @@ class SceneListStore: SceneListStoreProtocol {
   let apiManager = APIManager()
   func getData(_ completion: @escaping (Result<Phone, APIError>) -> Void) {
     self.apiManager.getPhones{ (response) in
-        completion(response)
+      completion(response)
     }
   }
 }

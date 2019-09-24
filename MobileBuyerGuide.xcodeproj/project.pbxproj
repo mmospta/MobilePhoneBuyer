@@ -107,10 +107,17 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		8D8AA992233A68F8005AF989 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				8D1D26682330D9DF0092DD8D /* APIManager.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
 		8DDB9334232F918B00313485 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				8DDB9357232F974200313485 /* SceneListStoryboard.storyboard */,
 				8DDB9336232F928D00313485 /* SceneListStore.swift */,
 				8D1D266A23323EA70092DD8D /* SceneListPresenter.swift */,
 				8DDB9338232F928D00313485 /* SceneListWorker.swift */,
@@ -118,6 +125,7 @@
 				8DDB933A232F928D00313485 /* SceneListModels.swift */,
 				8DDB933B232F928D00313485 /* SceneListViewController.swift */,
 				8DDB933C232F928D00313485 /* SceneListInteractor.swift */,
+				8DDB9357232F974200313485 /* SceneListStoryboard.storyboard */,
 				8D1D2661233098670092DD8D /* ListViewCell.swift */,
 			);
 			path = List;
@@ -162,8 +170,8 @@
 			children = (
 				8D1D266C23338F240092DD8D /* Scenes */,
 				8D1D26652330BD5D0092DD8D /* Model */,
+				8D8AA992233A68F8005AF989 /* services */,
 				AE896C0C22F17400002F80DF /* AppDelegate.swift */,
-				8D1D26682330D9DF0092DD8D /* APIManager.swift */,
 				AE896C0E22F17400002F80DF /* ViewController.swift */,
 				AE896C1322F17401002F80DF /* Assets.xcassets */,
 				AE896C1522F17401002F80DF /* LaunchScreen.storyboard */,
