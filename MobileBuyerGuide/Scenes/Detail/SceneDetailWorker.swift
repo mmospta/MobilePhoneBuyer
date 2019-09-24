@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SceneDetailStoreProtocol {
-  func getData(_ completion: @escaping (Result<Entity>) -> Void)
+  func getData(mobileId: Int, _ completion: @escaping (Result<DetailPhone, APIError>) -> Void)
 }
 
 class SceneDetailWorker {
@@ -22,10 +22,8 @@ class SceneDetailWorker {
 
   // MARK: - Business Logic
 
-  func doSomeWork(_ completion: @escaping (Result<Entity>) -> Void) {
-    // NOTE: Do the work
-    store.getData {
-      // The worker may perform some small business logic before returning the result to the Interactor
+  func doSomeWork(mobileId: Int, _ completion: @escaping (Result<DetailPhone, APIError>) -> Void) {
+    store.getData(mobileId: mobileId) {
       completion($0)
     }
   }

@@ -17,36 +17,43 @@ protocol SceneListInteractorInterface {
   func getSortingPriceHighToLow(request: SceneList.GetPhone.Request)
   func getSortingRating(request: SceneList.GetPhone.Request)
   func tapSelectRow(request: SceneList.TapSelectRow.Request)
-  var mobileId: Int {get set}
+  var mobileDataAtRow: PhoneElement? {get set}
 }
 
 class SceneListInteractor: SceneListInteractorInterface {
   
   var presenter: SceneListPresenterInterface!
   var worker: SceneListWorker?
-  var model: Entity?
   var responseData: Phone = []
   var mobileListDataFavourite: Phone = []
   var favouriteId: [Int] = []
   var favouriteData: Phone = []
   var hiddenButton: Bool = false
   var sortData: Phone = []
-  var mobileId: Int = 0
+  var mobileDataAtRow: PhoneElement?
   
   // MARK: - Business logic
   
   func getPhone(request: SceneList.GetPhone.Request) {
-    worker?.getPhone { [weak self] in
-      if case let Result.success(data) = $0 {
-        switch Result.success(data){
-        case .success(let data):
-          self!.responseData = data
-        case .failure:
-          break
-        }
+    worker?.getPhone { [weak self] apiResponse in
+      switch apiResponse {
+      case .success(let data):
+        self!.responseData = data
+      case .failure(let error):
+        print(error)
+        
       }
+      //      if let Result.success(data) = $0 {
+      //        switch Result.success(data){
+      //        case .success(let data):
+      //          self!.responseData = data
+      //        case .failure:
+      //          break
+      //        }
+      //      }
       let response = SceneList.GetPhone.Response(responseData: self!.responseData, hiddenButton: self!.hiddenButton)
       self?.presenter.presentPhone(response: response)
+      
     }
   }
   
@@ -126,9 +133,8 @@ class SceneListInteractor: SceneListInteractorInterface {
   }
   
   func tapSelectRow(request: SceneList.TapSelectRow.Request) {
-    let response = SceneList.TapSelectRow.Response(mobileId: request.mobileId)
-    mobileId = request.mobileId
+    let response = SceneList.TapSelectRow.Response(responseData: request.responseData)
+    mobileDataAtRow = request.responseData
     presenter.presentTapSelectRow(response: response)
   }
-  
 }

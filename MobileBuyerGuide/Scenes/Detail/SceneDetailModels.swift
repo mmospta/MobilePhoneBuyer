@@ -11,11 +11,25 @@ import UIKit
 struct SceneDetail {
   /// This structure represents a use case
   struct Something {
-    /// Data struct sent to Interactor
     struct Request {}
-    /// Data struct sent to Presenter
-    struct Response {}
-    /// Data struct sent to ViewController
-    struct ViewModel {}
+    struct Response {
+      let responseData: DetailPhone
+    }
+    struct ViewModel {
+      let url: [String]
+    }
+  }
+  
+  struct GetDetailPhone {
+    struct Request {}
+    
+    struct Response {
+      let mobileDataAtRow: PhoneElement
+    }
+    struct ViewModel {
+      let price: Double
+      let rating: Double
+      let description: String
+    }
   }
 }

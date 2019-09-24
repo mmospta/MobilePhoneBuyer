@@ -173,14 +173,15 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
     cell.favouriteButtonAction = {
       let favouriteId: Int = cellData.id
       self.interactor.favouriteButtonTapped(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
+      // delegate cell
     }
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    let mobileId: Int = mobileListData[indexPath.row].id
-    let request = SceneList.TapSelectRow.Request(mobileId: mobileId)
+    let mobileDataAtRow: PhoneElement = mobileListData[indexPath.row]
+    let request = SceneList.TapSelectRow.Request(responseData: mobileDataAtRow)
     interactor.tapSelectRow(request: request)
   }
   

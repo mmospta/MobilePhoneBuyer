@@ -24,7 +24,7 @@ class ListViewCell: UITableViewCell{
   
   func configCell(phone: PhoneElement, favouriteId: [Int]) {
     phoneNameLabel.text = phone.brand
-    priceLabel.text = "Price: \(phone.price)"
+    priceLabel.text = "Price: $\(phone.price)"
     ratingLabel.text = "Rating: \(phone.rating)"
     phoneDescriptionLabel.text = phone.phoneDescription
     phoneImageView.kf.setImage(with: URL(string: phone.thumbImageURL))

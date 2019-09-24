@@ -40,10 +40,10 @@ struct SceneList {
   
   struct TapSelectRow {
     struct Request {
-      let mobileId: Int
+      let responseData: PhoneElement
     }
     struct Response {
-      let mobileId: Int
+      let responseData: PhoneElement
     }
     struct ViewModel {
      

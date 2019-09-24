@@ -11,32 +11,33 @@ import Alamofire
 import SwiftyJSON
 
 enum APIError: Error {
-    case invalidJSON
-    case invalidData
+  case invalidJSON
+  case invalidData
 }
 
 class APIManager {
-    func getPhones(completion: @escaping (Result<Phone>) -> Void) {
-        let urlString = "https://scb-test-mobile.herokuapp.com/api/mobiles/"
-        AF.request(urlString).responseJSON { (response) in
-            switch response.result {
-            case .success:
-                do{
-                    let phone = try JSONDecoder().decode(Phone.self, from: response.data!)
-                    completion(.success(phone))
-                }catch{
-                    completion(.failure(APIError.invalidJSON))
-                }
-    
-            case .failure:
-                completion(.failure(APIError.invalidData))
-            }
-        }
-    }
-  
-  func getDetailPhone(completion: @escaping (Result<DetailPhone>) -> Void) {
-    let urlString = "https://scb-test-mobile.herokuapp.com/api/mobiles/\("mobileID")/images/"
+  func getPhones(completion: @escaping (Result<Phone, APIError>) -> Void) {
+    let urlString = "https://scb-test-mobile.herokuapp.com/api/mobiles/"
     AF.request(urlString).responseJSON { (response) in
+      
+      switch response.result {
+      case .success:
+        do{
+          let phone = try JSONDecoder().decode(Phone.self, from: response.data!)
+          completion(.success(phone))
+        }catch{
+          completion(.failure(APIError.invalidJSON))
+        }
+      case .failure:
+        completion(.failure(APIError.invalidData))
+      }
+    }
+  }
+  
+  func getDetailPhone(mobileId: Int, completion: @escaping (Result<DetailPhone, APIError>) -> Void) {
+    let urlString = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(mobileId)/images/"
+    AF.request(urlString).responseJSON { (response) in
+      
       switch response.result {
       case .success:
         do{
@@ -45,10 +46,10 @@ class APIManager {
         }catch{
           completion(.failure(APIError.invalidJSON))
         }
-        
       case .failure:
         completion(.failure(APIError.invalidData))
       }
+      
     }
   }
 }

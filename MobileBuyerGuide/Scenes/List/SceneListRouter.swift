@@ -52,6 +52,6 @@ class SceneListRouter: SceneListRouterInput {
     // NOTE: Teach the router how to pass data to the next scene
     
     let someWhereViewController = segue.destination as! SceneDetailViewController
-     someWhereViewController.interactor.mobileId = viewController.interactor.mobileId
+     someWhereViewController.interactor.mobileDataAtRow = viewController.interactor.mobileDataAtRow
   }
 }

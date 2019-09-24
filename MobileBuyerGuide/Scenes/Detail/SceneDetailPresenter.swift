@@ -10,17 +10,36 @@ import UIKit
 
 protocol SceneDetailPresenterInterface {
   func presentSomething(response: SceneDetail.Something.Response)
+  func presentGetDetailPhone(response: SceneDetail.GetDetailPhone.Response)
 }
 
 class SceneDetailPresenter: SceneDetailPresenterInterface {
   weak var viewController: SceneDetailViewControllerInterface!
-
+  var data: DetailPhoneElement = DetailPhoneElement(id: 0, url: "", mobileID: 0)
+  var url: [String] = []
+  
   // MARK: - Presentation logic
-
+  
   func presentSomething(response: SceneDetail.Something.Response) {
-    // NOTE: Format the response from the Interactor and pass the result back to the View Controller. The resulting view model should be using only primitive types. Eg: the view should not need to involve converting date object into a formatted string. The formatting is done here.
+    
+//    for index in response.responseData {
+//      data = response.responseData[index]
+//
+//      url.append(data.url)
+//    }
+    
+    url  = response.responseData.map({$0.url})
 
-    let viewModel = SceneDetail.Something.ViewModel()
+    let viewModel = SceneDetail.Something.ViewModel(url: url)
     viewController.displaySomething(viewModel: viewModel)
+  } 
+  
+  func presentGetDetailPhone(response: SceneDetail.GetDetailPhone.Response) {
+    let price: Double = response.mobileDataAtRow.price
+    let rating: Double = response.mobileDataAtRow.rating
+    let description: String = response.mobileDataAtRow.phoneDescription
+    
+    let viewModel = SceneDetail.GetDetailPhone.ViewModel(price: price, rating: rating, description: description)
+    viewController.displayCollectionView(viewModel: viewModel)
   }
 }

@@ -9,29 +9,39 @@
 import UIKit
 
 protocol SceneDetailInteractorInterface {
-  func doSomething(request: SceneDetail.Something.Request)
-  var model: Entity? { get }
-  var mobileId: Int {get set}
+  func getImage(request: SceneDetail.Something.Request)
+  func getDetailPhone(request: SceneDetail.GetDetailPhone.Request)
+  //  var mobileId: Int {get set}
+  var mobileDataAtRow: PhoneElement? { get set }
 }
 
 class SceneDetailInteractor: SceneDetailInteractorInterface {
   var presenter: SceneDetailPresenterInterface!
   var worker: SceneDetailWorker?
-  var model: Entity?
-  var mobileId: Int = 0
-
+  //  var mobileId: Int = 0
+  var mobileDataAtRow: PhoneElement?
+  var responseData: DetailPhone = []
+  
   // MARK: - Business logic
-
-  func doSomething(request: SceneDetail.Something.Request) {
-    worker?.doSomeWork { [weak self] in
-      if case let Result.success(data) = $0 {
-        // If the result was successful, we keep the data so that we can deliver it to another view controller through the router.
-        self?.model = data
+  
+  func getImage(request: SceneDetail.Something.Request) {
+    worker?.doSomeWork(mobileId: mobileDataAtRow!.id) { [weak self] apiResponse in
+      switch apiResponse {
+      case .success(let data):
+        self!.responseData = data
+      case .failure(let error):
+        print(error)
       }
-
-      // NOTE: Pass the result to the Presenter. This is done by creating a response model with the result from the worker. The response could contain a type like UserResult enum (as declared in the SCB Easy project) with the result as an associated value.
-      let response = SceneDetail.Something.Response()
-      self?.presenter.presentSomething(response: response)
+      
+      let response = SceneDetail.Something.Response(responseData: self!.responseData)
+      self!.presenter.presentSomething(response: response)
     }
+    
+  }
+  
+  func getDetailPhone(request: SceneDetail.GetDetailPhone.Request) {
+    let response = SceneDetail.GetDetailPhone.Response(mobileDataAtRow: mobileDataAtRow!)
+    presenter.presentGetDetailPhone(response: response)
   }
 }
+

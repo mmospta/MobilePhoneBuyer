@@ -12,6 +12,7 @@
 		8D1D26672330BD700092DD8D /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D26662330BD700092DD8D /* Phone.swift */; };
 		8D1D26692330D9DF0092DD8D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D26682330D9DF0092DD8D /* APIManager.swift */; };
 		8D1D266B23323EA70092DD8D /* SceneListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D266A23323EA70092DD8D /* SceneListPresenter.swift */; };
+		8D8AA9912339C2A8005AF989 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8AA9902339C2A8005AF989 /* DetailCollectionViewCell.swift */; };
 		8DDB933E232F928D00313485 /* SceneListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9336232F928D00313485 /* SceneListStore.swift */; };
 		8DDB9340232F928D00313485 /* SceneListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9338232F928D00313485 /* SceneListWorker.swift */; };
 		8DDB9341232F928D00313485 /* SceneListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB9339232F928D00313485 /* SceneListRouter.swift */; };
@@ -25,7 +26,6 @@
 		8DDB9353232F92B300313485 /* SceneDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB934B232F92B300313485 /* SceneDetailModels.swift */; };
 		8DDB9354232F92B300313485 /* SceneDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB934C232F92B300313485 /* SceneDetailViewController.swift */; };
 		8DDB9355232F92B300313485 /* SceneDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB934D232F92B300313485 /* SceneDetailInteractor.swift */; };
-		8DDB9356232F92B300313485 /* SceneDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB934E232F92B300313485 /* SceneDetailEntity.swift */; };
 		8DDB9358232F974200313485 /* SceneListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DDB9357232F974200313485 /* SceneListStoryboard.storyboard */; };
 		8DDB935A232F975900313485 /* SceneDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DDB9359232F975900313485 /* SceneDetailStoryboard.storyboard */; };
 		AE896C0D22F17400002F80DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE896C0C22F17400002F80DF /* AppDelegate.swift */; };
@@ -40,6 +40,7 @@
 		8D1D26662330BD700092DD8D /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		8D1D26682330D9DF0092DD8D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		8D1D266A23323EA70092DD8D /* SceneListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneListPresenter.swift; sourceTree = "<group>"; };
+		8D8AA9902339C2A8005AF989 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		8DDB9336232F928D00313485 /* SceneListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListStore.swift; sourceTree = "<group>"; };
 		8DDB9338232F928D00313485 /* SceneListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListWorker.swift; sourceTree = "<group>"; };
 		8DDB9339232F928D00313485 /* SceneListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListRouter.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		8DDB934B232F92B300313485 /* SceneDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailModels.swift; sourceTree = "<group>"; };
 		8DDB934C232F92B300313485 /* SceneDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailViewController.swift; sourceTree = "<group>"; };
 		8DDB934D232F92B300313485 /* SceneDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailInteractor.swift; sourceTree = "<group>"; };
-		8DDB934E232F92B300313485 /* SceneDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetailEntity.swift; sourceTree = "<group>"; };
 		8DDB9357232F974200313485 /* SceneListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SceneListStoryboard.storyboard; sourceTree = "<group>"; };
 		8DDB9359232F975900313485 /* SceneDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SceneDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		AE896C0922F17400002F80DF /* MobileBuyerGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileBuyerGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,8 +133,8 @@
 				8DDB934B232F92B300313485 /* SceneDetailModels.swift */,
 				8DDB934C232F92B300313485 /* SceneDetailViewController.swift */,
 				8DDB934D232F92B300313485 /* SceneDetailInteractor.swift */,
-				8DDB934E232F92B300313485 /* SceneDetailEntity.swift */,
 				8DDB9359232F975900313485 /* SceneDetailStoryboard.storyboard */,
+				8D8AA9902339C2A8005AF989 /* DetailCollectionViewCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -302,6 +302,7 @@
 				8D1D26672330BD700092DD8D /* Phone.swift in Sources */,
 				AE896C0F22F17400002F80DF /* ViewController.swift in Sources */,
 				8DDB9355232F92B300313485 /* SceneDetailInteractor.swift in Sources */,
+				8D8AA9912339C2A8005AF989 /* DetailCollectionViewCell.swift in Sources */,
 				8DDB9351232F92B300313485 /* SceneDetailWorker.swift in Sources */,
 				8DDB9352232F92B300313485 /* SceneDetailRouter.swift in Sources */,
 				8DDB9343232F928D00313485 /* SceneListViewController.swift in Sources */,
@@ -311,7 +312,6 @@
 				8DDB934F232F92B300313485 /* SceneDetailStore.swift in Sources */,
 				8DDB9354232F92B300313485 /* SceneDetailViewController.swift in Sources */,
 				8D1D26692330D9DF0092DD8D /* APIManager.swift in Sources */,
-				8DDB9356232F92B300313485 /* SceneDetailEntity.swift in Sources */,
 				8DDB9341232F928D00313485 /* SceneListRouter.swift in Sources */,
 				8DDB933E232F928D00313485 /* SceneListStore.swift in Sources */,
 				8DDB9342232F928D00313485 /* SceneListModels.swift in Sources */,
