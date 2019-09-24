@@ -22,14 +22,20 @@ class SceneDetailPresenter: SceneDetailPresenterInterface {
   
   func presentSomething(response: SceneDetail.Something.Response) {
     
-//    for index in response.responseData {
-//      data = response.responseData[index]
-//
-//      url.append(data.url)
-//    }
+    //    for index in response.responseData {
+    //      data = response.responseData[index]
+    //
+    //      url.append(data.url)
+    //    }
     
-    url  = response.responseData.map({$0.url})
-
+    url  = response.responseData.map({
+      if $0.url.hasPrefix("http://") || $0.url.hasPrefix("https://"){
+        return $0.url
+      }else{
+        let correctURL = "http://\($0.url)"
+        return correctURL
+      }})
+    
     let viewModel = SceneDetail.Something.ViewModel(url: url)
     viewController.displaySomething(viewModel: viewModel)
   } 

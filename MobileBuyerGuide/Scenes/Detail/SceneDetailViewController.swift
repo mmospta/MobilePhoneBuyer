@@ -14,7 +14,7 @@ protocol SceneDetailViewControllerInterface: class {
 }
 
 class SceneDetailViewController: UIViewController, SceneDetailViewControllerInterface {
-
+  
   var interactor: SceneDetailInteractorInterface!
   var router: SceneDetailRouter!
   var url: [String] = []
@@ -22,7 +22,7 @@ class SceneDetailViewController: UIViewController, SceneDetailViewControllerInte
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var ratingLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
-  @IBOutlet weak var DetailCollectionView: UICollectionView!
+  @IBOutlet weak var detailCollectionView: UICollectionView!
   
   // MARK: - Object lifecycle
   
@@ -74,7 +74,7 @@ class SceneDetailViewController: UIViewController, SceneDetailViewControllerInte
   
   func displaySomething(viewModel: SceneDetail.Something.ViewModel) {
     url = viewModel.url
-    DetailCollectionView.reloadData()
+    detailCollectionView.reloadData()
   }
   
   func displayCollectionView(viewModel: SceneDetail.GetDetailPhone.ViewModel) {
@@ -106,17 +106,13 @@ extension SceneDetailViewController: UICollectionViewDataSource {
     cell.configCell(url: cellData)
     return cell
   }
-  
-//  let cell = tableView.dequeueReusableCell(withIdentifier: "phoneListViewCell", for: indexPath) as! ListViewCell
-//  let cellData = mobileListData[indexPath.row]
-//  cell.configCell(phone: cellData, favouriteId: favouriteId)
-//  cell.hiddenFavouriteButton(bool: hiddenButton ?? false)
-//  cell.favouriteButtonAction = {
-//  let favouriteId: Int = cellData.id
-//  self.interactor.favouriteButtonTapped(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
-//  // delegate cell
-//  }
-//  return cell
-//}
-  
 }
+
+extension SceneDetailViewController :UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let height = detailCollectionView.bounds.height
+    let width = detailCollectionView.bounds.width
+    return CGSize(width: height, height: width)
+  }
+}
+
