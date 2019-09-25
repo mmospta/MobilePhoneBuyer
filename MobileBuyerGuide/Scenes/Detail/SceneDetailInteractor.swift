@@ -9,22 +9,20 @@
 import UIKit
 
 protocol SceneDetailInteractorInterface {
-  func getImage(request: SceneDetail.Something.Request)
+  func getImage(request: SceneDetail.GetImage.Request)
   func getDetailPhone(request: SceneDetail.GetDetailPhone.Request)
-  //  var mobileId: Int {get set}
   var mobileDataAtRow: PhoneElement? { get set }
 }
 
 class SceneDetailInteractor: SceneDetailInteractorInterface {
   var presenter: SceneDetailPresenterInterface!
   var worker: SceneDetailWorker?
-  //  var mobileId: Int = 0
   var mobileDataAtRow: PhoneElement?
-  var responseData: DetailPhone = []
+  var responseData: [DetailPhoneElement] = []
   
   // MARK: - Business logic
   
-  func getImage(request: SceneDetail.Something.Request) {
+  func getImage(request: SceneDetail.GetImage.Request) {
     worker?.doSomeWork(mobileId: mobileDataAtRow!.id) { [weak self] apiResponse in
       switch apiResponse {
       case .success(let data):
@@ -33,7 +31,7 @@ class SceneDetailInteractor: SceneDetailInteractorInterface {
         print(error)
       }
       
-      let response = SceneDetail.Something.Response(responseData: self!.responseData)
+      let response = SceneDetail.GetImage.Response(responseData: self!.responseData)
       self!.presenter.presentSomething(response: response)
     }
     

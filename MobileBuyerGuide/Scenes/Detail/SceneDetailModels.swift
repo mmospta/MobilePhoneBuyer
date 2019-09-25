@@ -9,11 +9,11 @@
 import UIKit
 
 struct SceneDetail {
-  /// This structure represents a use case
-  struct Something {
-    struct Request {}
+  struct GetImage {
+    struct Request {
+    }
     struct Response {
-      let responseData: DetailPhone
+      let responseData: [DetailPhoneElement]
     }
     struct ViewModel {
       let url: [String]

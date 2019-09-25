@@ -9,21 +9,40 @@
 import UIKit
 import SwiftyJSON
 
+enum SegmentControlState {
+  case all
+  case favourite
+}
+
+enum SortType {
+  case none
+  case priceLowToHigh
+  case priceHighToLow
+  case ratingHighToLow
+}
+
 struct SceneList {
-  /// This structure represents a use case
+  
   struct GetPhone {
-    /// Data struct sent to Interactor
-    struct Request {}
-    /// Data struct sent to Presenter
+    
+    struct Request {
+      let state: SegmentControlState
+    }
+    
     struct Response {
-      let responseData: Phone
-      let hiddenButton: Bool
+      let responseData: [PhoneElement]
     }
-    /// Data struct sent to ViewController
+    
     struct ViewModel {
-      let passData: Phone
-      let hiddenButton: Bool
+      let passData: [PhoneElement]
     }
+  }
+  
+  struct SortPhone {
+    struct Request {
+      let sortType: SortType
+    }
+    
   }
   
   struct TapFavourite {

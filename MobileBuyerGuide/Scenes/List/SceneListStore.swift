@@ -10,7 +10,7 @@ import Foundation
 
 class SceneListStore: SceneListStoreProtocol {
   let apiManager = APIManager()
-  func getData(_ completion: @escaping (Result<Phone, APIError>) -> Void) {
+  func getData(_ completion: @escaping (Result<[PhoneElement], APIError>) -> Void) {
     self.apiManager.getPhones{ (response) in
       completion(response)
     }

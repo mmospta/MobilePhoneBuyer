@@ -16,14 +16,14 @@ enum APIError: Error {
 }
 
 class APIManager {
-  func getPhones(completion: @escaping (Result<Phone, APIError>) -> Void) {
+  func getPhones(completion: @escaping (Result<[PhoneElement], APIError>) -> Void) {
     let urlString = "https://scb-test-mobile.herokuapp.com/api/mobiles/"
     AF.request(urlString).responseJSON { (response) in
       
       switch response.result {
       case .success:
         do{
-          let phone = try JSONDecoder().decode(Phone.self, from: response.data!)
+          let phone = try JSONDecoder().decode([PhoneElement].self, from: response.data!)
           completion(.success(phone))
         }catch{
           completion(.failure(APIError.invalidJSON))
@@ -34,14 +34,14 @@ class APIManager {
     }
   }
   
-  func getDetailPhone(mobileId: Int, completion: @escaping (Result<DetailPhone, APIError>) -> Void) {
+  func getDetailPhone(mobileId: Int, completion: @escaping (Result<[DetailPhoneElement], APIError>) -> Void) {
     let urlString = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(mobileId)/images/"
     AF.request(urlString).responseJSON { (response) in
       
       switch response.result {
       case .success:
         do{
-          let detailPhone = try JSONDecoder().decode(DetailPhone.self, from: response.data!)
+          let detailPhone = try JSONDecoder().decode([DetailPhoneElement].self, from: response.data!)
           completion(.success(detailPhone))
         }catch{
           completion(.failure(APIError.invalidJSON))

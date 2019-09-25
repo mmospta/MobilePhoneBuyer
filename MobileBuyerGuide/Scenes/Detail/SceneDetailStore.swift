@@ -10,7 +10,7 @@ import Foundation
 
 class SceneDetailStore: SceneDetailStoreProtocol {
   let apiManager = APIManager()
-  func getData(mobileId: Int, _ completion: @escaping (Result<DetailPhone, APIError>) -> Void) {
+  func getData(mobileId: Int, _ completion: @escaping (Result<[DetailPhoneElement], APIError>) -> Void) {
     self.apiManager.getDetailPhone(mobileId: mobileId) { (response) in
       completion(response)
     }

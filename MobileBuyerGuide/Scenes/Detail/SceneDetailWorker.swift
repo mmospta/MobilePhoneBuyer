@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SceneDetailStoreProtocol {
-  func getData(mobileId: Int, _ completion: @escaping (Result<DetailPhone, APIError>) -> Void)
+  func getData(mobileId: Int, _ completion: @escaping (Result<[DetailPhoneElement], APIError>) -> Void)
 }
 
 class SceneDetailWorker {
@@ -22,7 +22,7 @@ class SceneDetailWorker {
   
   // MARK: - Business Logic
   
-  func doSomeWork(mobileId: Int, _ completion: @escaping (Result<DetailPhone, APIError>) -> Void) {
+  func doSomeWork(mobileId: Int, _ completion: @escaping (Result<[DetailPhoneElement], APIError>) -> Void) {
     store.getData(mobileId: mobileId) {
       completion($0)
     }

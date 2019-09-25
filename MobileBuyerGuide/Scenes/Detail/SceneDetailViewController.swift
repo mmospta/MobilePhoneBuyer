@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SceneDetailViewControllerInterface: class {
-  func displaySomething(viewModel: SceneDetail.Something.ViewModel)
+  func displaySomething(viewModel: SceneDetail.GetImage.ViewModel)
   func displayCollectionView(viewModel: SceneDetail.GetDetailPhone.ViewModel)
 }
 
@@ -31,10 +31,10 @@ class SceneDetailViewController: UIViewController, SceneDetailViewControllerInte
     configure(viewController: self)
   }
   
-//  override func  viewDidLayoutSubviews() {
-//    super.viewDidLayoutSubviews()
-//    .collectionViewLayout.invalidateLayout()
-//  }
+  //  override func  viewDidLayoutSubviews() {
+  //    super.viewDidLayoutSubviews()
+  //    .collectionViewLayout.invalidateLayout()
+  //  }
   
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     detailCollectionView.collectionViewLayout.invalidateLayout()
@@ -60,16 +60,16 @@ class SceneDetailViewController: UIViewController, SceneDetailViewControllerInte
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    doSomethingOnLoad()
+    getImage()
     getDetail()
   }
   
   // MARK: - Event handling
   
-  func doSomethingOnLoad() {
+  func getImage() {
     // NOTE: Ask the Interactor to do some work
     
-    let request = SceneDetail.Something.Request()
+    let request = SceneDetail.GetImage.Request()
     interactor.getImage(request: request)
   }
   
@@ -80,7 +80,7 @@ class SceneDetailViewController: UIViewController, SceneDetailViewControllerInte
   
   // MARK: - Display logic
   
-  func displaySomething(viewModel: SceneDetail.Something.ViewModel) {
+  func displaySomething(viewModel: SceneDetail.GetImage.ViewModel) {
     url = viewModel.url
     detailCollectionView.reloadData()
   }
@@ -120,7 +120,7 @@ extension SceneDetailViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let height = collectionView.bounds.height
     let width = collectionView.bounds.height
-//      collectionView.bounds.height
+    //      collectionView.bounds.height
     return CGSize(width: width, height: height)
   }
 }

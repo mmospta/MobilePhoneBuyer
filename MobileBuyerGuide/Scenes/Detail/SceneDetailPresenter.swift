@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SceneDetailPresenterInterface {
-  func presentSomething(response: SceneDetail.Something.Response)
+  func presentSomething(response: SceneDetail.GetImage.Response)
   func presentGetDetailPhone(response: SceneDetail.GetDetailPhone.Response)
 }
 
@@ -20,7 +20,7 @@ class SceneDetailPresenter: SceneDetailPresenterInterface {
   
   // MARK: - Presentation logic
   
-  func presentSomething(response: SceneDetail.Something.Response) {
+  func presentSomething(response: SceneDetail.GetImage.Response) {
     
     url  = response.responseData.map({
       if $0.url.hasPrefix("http://") || $0.url.hasPrefix("https://"){
@@ -30,7 +30,7 @@ class SceneDetailPresenter: SceneDetailPresenterInterface {
         return correctURL
       }})
     
-    let viewModel = SceneDetail.Something.ViewModel(url: url)
+    let viewModel = SceneDetail.GetImage.ViewModel(url: url)
     viewController.displaySomething(viewModel: viewModel)
   } 
   

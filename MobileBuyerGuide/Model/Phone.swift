@@ -25,9 +25,6 @@ struct PhoneElement: Codable {
     }
 }
 
-typealias Phone = [PhoneElement]
-
-
 struct DetailPhoneElement: Codable {
   let id: Int
   let url: String
@@ -38,7 +35,5 @@ struct DetailPhoneElement: Codable {
     case mobileID = "mobile_id"
   }
 }
-
-typealias DetailPhone = [DetailPhoneElement]
 
 

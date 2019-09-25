@@ -10,12 +10,10 @@ import UIKit
 
 protocol SceneListInteractorInterface {
   func getPhone(request: SceneList.GetPhone.Request)
-  func favouriteButtonTapped(request: SceneList.TapFavourite.Request)
+  func setFavouritePhone(request: SceneList.TapFavourite.Request)
   func getAllData(request: SceneList.GetPhone.Request)
   func getFavouriteData(request: SceneList.GetPhone.Request)
-  func getSortingPriceLowToHigh(request: SceneList.GetPhone.Request)
-  func getSortingPriceHighToLow(request: SceneList.GetPhone.Request)
-  func getSortingRating(request: SceneList.GetPhone.Request)
+  func getSortPhone(request: SceneList.SortPhone.Request)
   func tapSelectRow(request: SceneList.TapSelectRow.Request)
   var mobileDataAtRow: PhoneElement? {get set}
 }
@@ -24,12 +22,12 @@ class SceneListInteractor: SceneListInteractorInterface {
   
   var presenter: SceneListPresenterInterface!
   var worker: SceneListWorker?
-  var responseData: Phone = []
-  var mobileListDataFavourite: Phone = []
+  var responseData: [PhoneElement] = []
+  var mobileListDataFavourite: [PhoneElement] = []
   var favouriteId: [Int] = []
-  var favouriteData: Phone = []
-  var hiddenButton: Bool = false
-  var sortData: Phone = []
+  var favouriteData: [PhoneElement] = []
+  var segmentControllState: SegmentControlState = .all
+  var sortData: [PhoneElement] = []
   var mobileDataAtRow: PhoneElement?
   
   // MARK: - Business logic
@@ -43,85 +41,59 @@ class SceneListInteractor: SceneListInteractorInterface {
         print(error)
         
       }
-      //      if let Result.success(data) = $0 {
-      //        switch Result.success(data){
-      //        case .success(let data):
-      //          self!.responseData = data
-      //        case .failure:
-      //          break
-      //        }
-      //      }
-      let response = SceneList.GetPhone.Response(responseData: self!.responseData, hiddenButton: self!.hiddenButton)
+      
+      let response = SceneList.GetPhone.Response(responseData: self!.responseData)
       self?.presenter.presentPhone(response: response)
       
     }
   }
   
   func getAllData(request: SceneList.GetPhone.Request) {
-    hiddenButton = false
-    let response = SceneList.GetPhone.Response(responseData: responseData, hiddenButton: hiddenButton)
+    segmentControllState = .all
+    let response = SceneList.GetPhone.Response(responseData: responseData)
     presenter.presentPhone(response: response)
   }
   
   func getFavouriteData(request: SceneList.GetPhone.Request) {
     favouriteData = responseData.filter { favouriteId.contains($0.id)}
-    hiddenButton = true
-    let response = SceneList.GetPhone.Response(responseData: favouriteData, hiddenButton: hiddenButton)
+    segmentControllState = .favourite
+    let response = SceneList.GetPhone.Response(responseData: favouriteData)
     presenter.presentPhone(response: response)
   }
   
-  func getSortingPriceLowToHigh(request: SceneList.GetPhone.Request) {
-    switch hiddenButton {
-    case false:
-      responseData.sort(by: {$0.price < $1.price})
-      sortData = responseData
-    case true:
-      favouriteData.sort(by: {$0.price < $1.price})
-      sortData = favouriteData
-    default:
-      break
+  
+  
+  func sorting(sortType: SortType) -> [PhoneElement] {
+    var phoneList: [PhoneElement] = []
+    
+    if segmentControllState == .all {
+      phoneList = responseData
+    }else{
+      phoneList = favouriteData
     }
     
-    let response = SceneList.GetPhone.Response(responseData: self.sortData, hiddenButton: self.hiddenButton)
+    switch sortType {
+    case .priceLowToHigh:
+      print("low to high")
+      phoneList.sort(by: {$0.price < $1.price})
+    case .priceHighToLow:
+      print("high")
+      phoneList.sort(by: {$0.price > $1.price})
+    case .ratingHighToLow:
+      print("rating")
+      phoneList.sort(by: {$0.rating > $1.rating})
+    case .none:
+      break
+    }
+    return phoneList
+  }
+  
+  func getSortPhone(request: SceneList.SortPhone.Request) {
+    let response = SceneList.GetPhone.Response(responseData: sorting(sortType: request.sortType))
     self.presenter.presentPhone(response: response)
   }
   
-  
-  
-  func getSortingPriceHighToLow(request: SceneList.GetPhone.Request) {
-    switch hiddenButton {
-    case false:
-      responseData.sort(by: {$0.price > $1.price})
-      sortData = responseData
-    case true:
-      favouriteData.sort(by: {$0.price > $1.price})
-      sortData = favouriteData
-    default:
-      break
-    }
-    
-    let response = SceneList.GetPhone.Response(responseData: self.sortData, hiddenButton: self.hiddenButton)
-    self.presenter.presentPhone(response: response)
-    
-  }
-  
-  func getSortingRating(request: SceneList.GetPhone.Request) {
-    switch hiddenButton {
-    case false:
-      responseData.sort(by: {$0.rating > $1.rating})
-      sortData = responseData
-    case true:
-      favouriteData.sort(by: {$0.rating > $1.rating})
-      sortData = favouriteData
-    default:
-      break
-    }
-    
-    let response = SceneList.GetPhone.Response(responseData: self.sortData, hiddenButton: self.hiddenButton)
-    self.presenter.presentPhone(response: response)
-  }
-  
-  func favouriteButtonTapped(request: SceneList.TapFavourite.Request) {
+  func setFavouritePhone(request: SceneList.TapFavourite.Request) {
     let id: Int = request.favouriteId
     if let index = favouriteId.firstIndex(where: {$0 == id}) {
       favouriteId.remove(at: index)

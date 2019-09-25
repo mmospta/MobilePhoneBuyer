@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SceneListStoreProtocol {
-  func getData(_ completion: @escaping (Result<Phone, APIError>) -> Void)
+  func getData(_ completion: @escaping (Result<[PhoneElement], APIError>) -> Void)
 }
 
 class SceneListWorker {
@@ -20,7 +20,7 @@ class SceneListWorker {
     self.store = store
   }
   
-  func getPhone(_ completion: @escaping (Result<Phone, APIError>) -> Void) {
+  func getPhone(_ completion: @escaping (Result<[PhoneElement], APIError>) -> Void) {
     store.getData {
       completion($0)
     }

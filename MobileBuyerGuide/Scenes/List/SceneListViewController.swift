@@ -19,7 +19,7 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   
   var interactor: SceneListInteractorInterface!
   var router: SceneListRouter!
-  var mobileListData: Phone = []
+  var mobileListData: [PhoneElement] = []
   var favouriteId: [Int] = []
   var hiddenButton: Bool?
   
@@ -78,18 +78,18 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   // MARK: - Event handling
   
   func getPhoneOnLoad() {
-    let request = SceneList.GetPhone.Request()
+    let request = SceneList.GetPhone.Request(state: .all)
     interactor.getPhone(request: request)
   }
   
   @IBAction func segmentControlChange(_ sender: Any) {
     switch segmentControl.selectedSegmentIndex {
     case 0:
-      let request = SceneList.GetPhone.Request()
+      let request = SceneList.GetPhone.Request(state: .all)
       interactor.getAllData(request: request)
       
     case 1:
-      let request = SceneList.GetPhone.Request()
+      let request = SceneList.GetPhone.Request(state: .favourite)
       interactor.getFavouriteData(request: request)
       
     default:
@@ -100,8 +100,8 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   @IBAction func sortButton(_ sender: Any) {
     let alertController = UIAlertController(title: "Sort", message: "", preferredStyle: .alert)
     let action1 = UIAlertAction(title: "Price low to high", style: .default) { (action:UIAlertAction) in
-      let request = SceneList.GetPhone.Request()
-      self.interactor.getSortingPriceLowToHigh(request: request)
+      let request = SceneList.SortPhone.Request(sortType: .priceLowToHigh)
+      self.interactor.getSortPhone(request: request)
     }
     
     let action2 = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
@@ -109,13 +109,13 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     }
     
     let action3 = UIAlertAction(title: "Price high to low", style: .default) { (action:UIAlertAction) in
-      let request = SceneList.GetPhone.Request()
-      self.interactor.getSortingPriceHighToLow(request: request)
+      let request = SceneList.SortPhone.Request(sortType: .priceHighToLow)
+      self.interactor.getSortPhone(request: request)
     }
     
     let action4 = UIAlertAction(title: "Rating", style: .default) { (action:UIAlertAction) in
-      let request = SceneList.GetPhone.Request()
-      self.interactor.getSortingRating(request: request)
+      let request = SceneList.SortPhone.Request(sortType: .ratingHighToLow)
+      self.interactor.getSortPhone(request: request)
     }
     
     alertController.addAction(action1)
@@ -130,7 +130,6 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   
   func displayPhone(viewModel: SceneList.GetPhone.ViewModel) {
     mobileListData = viewModel.passData
-    hiddenButton = viewModel.hiddenButton
     tableView.reloadData()
   }
   
@@ -172,7 +171,7 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
     cell.hiddenFavouriteButton(bool: hiddenButton ?? false)
     cell.favouriteButtonAction = {
       let favouriteId: Int = cellData.id
-      self.interactor.favouriteButtonTapped(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
+      self.interactor.setFavouritePhone(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
       // delegate cell
     }
     return cell
@@ -190,7 +189,7 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
       print("delete")
       let favouriteId: Int = mobileListData[indexPath.row].id
       print(favouriteId)
-      interactor.favouriteButtonTapped(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
+      interactor.setFavouritePhone(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
       self.mobileListData.remove(at: indexPath.row)
       self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }

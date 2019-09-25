@@ -22,7 +22,7 @@ class SceneListPresenter: SceneListPresenterInterface {
   // MARK: - Presentation logic
   
   func presentPhone(response: SceneList.GetPhone.Response) {
-    let viewModel = SceneList.GetPhone.ViewModel(passData: response.responseData, hiddenButton: response.hiddenButton)
+    let viewModel = SceneList.GetPhone.ViewModel(passData: response.responseData)
     viewController.displayPhone(viewModel: viewModel)
   }
   
