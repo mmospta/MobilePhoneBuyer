@@ -31,6 +31,14 @@ class SceneDetailViewController: UIViewController, SceneDetailViewControllerInte
     configure(viewController: self)
   }
   
+//  override func  viewDidLayoutSubviews() {
+//    super.viewDidLayoutSubviews()
+//    .collectionViewLayout.invalidateLayout()
+//  }
+  
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    detailCollectionView.collectionViewLayout.invalidateLayout()
+  }
   // MARK: - Configuration
   
   private func configure(viewController: SceneDetailViewController) {
@@ -108,11 +116,12 @@ extension SceneDetailViewController: UICollectionViewDataSource {
   }
 }
 
-extension SceneDetailViewController :UICollectionViewDelegateFlowLayout {
+extension SceneDetailViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let height = detailCollectionView.bounds.height
-    let width = detailCollectionView.bounds.width
-    return CGSize(width: height, height: width)
+    let height = collectionView.bounds.height
+    let width = collectionView.bounds.height
+//      collectionView.bounds.height
+    return CGSize(width: width, height: height)
   }
 }
 
