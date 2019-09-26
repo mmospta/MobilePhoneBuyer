@@ -29,6 +29,7 @@ class SceneListInteractor: SceneListInteractorInterface {
   var segmentControllState: SegmentControlState = .all
   var sortData: [PhoneElement] = []
   var mobileDataAtRow: PhoneElement?
+  var hiddenFavoriteButton: HiddenFavouriteButton = .hidden
   
   // MARK: - Business logic
   
@@ -42,7 +43,8 @@ class SceneListInteractor: SceneListInteractorInterface {
         
       }
       
-      let response = SceneList.GetPhone.Response(responseData: self!.responseData)
+      self?.hiddenFavoriteButton = .show
+      let response = SceneList.GetPhone.Response(responseData: self!.responseData, hiddenFavouriteButton: self!.hiddenFavoriteButton)
       self?.presenter.presentPhone(response: response)
       
     }
@@ -50,14 +52,16 @@ class SceneListInteractor: SceneListInteractorInterface {
   
   func getAllData(request: SceneList.GetPhone.Request) {
     segmentControllState = .all
-    let response = SceneList.GetPhone.Response(responseData: responseData)
+    hiddenFavoriteButton = .show
+    let response = SceneList.GetPhone.Response(responseData: responseData, hiddenFavouriteButton: .show)
     presenter.presentPhone(response: response)
   }
   
   func getFavouriteData(request: SceneList.GetPhone.Request) {
     favouriteData = responseData.filter { favouriteId.contains($0.id)}
     segmentControllState = .favourite
-    let response = SceneList.GetPhone.Response(responseData: favouriteData)
+    hiddenFavoriteButton = .hidden
+    let response = SceneList.GetPhone.Response(responseData: favouriteData, hiddenFavouriteButton: .hidden)
     presenter.presentPhone(response: response)
   }
   
@@ -87,9 +91,9 @@ class SceneListInteractor: SceneListInteractorInterface {
     }
     return phoneList
   }
-  
+
   func getSortPhone(request: SceneList.SortPhone.Request) {
-    let response = SceneList.GetPhone.Response(responseData: sorting(sortType: request.sortType))
+    let response = SceneList.GetPhone.Response(responseData: sorting(sortType: request.sortType), hiddenFavouriteButton: hiddenFavoriteButton)
     self.presenter.presentPhone(response: response)
   }
   

@@ -21,6 +21,17 @@ enum SortType {
   case ratingHighToLow
 }
 
+enum HiddenFavouriteButton {
+  case hidden
+  case show
+}
+
+enum SwipeRowToDelete {
+  case yes
+  case no
+}
+
+
 struct SceneList {
   
   struct GetPhone {
@@ -31,12 +42,15 @@ struct SceneList {
     
     struct Response {
       let responseData: [PhoneElement]
+      let hiddenFavouriteButton: HiddenFavouriteButton
     }
     
     struct ViewModel {
       let passData: [PhoneElement]
+      let hiddenFavouriteButton: HiddenFavouriteButton
     }
   }
+
   
   struct SortPhone {
     struct Request {

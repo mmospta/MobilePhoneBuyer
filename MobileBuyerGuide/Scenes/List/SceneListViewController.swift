@@ -21,7 +21,8 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   var router: SceneListRouter!
   var mobileListData: [PhoneElement] = []
   var favouriteId: [Int] = []
-  var hiddenButton: Bool?
+  var hiddenButton: HiddenFavouriteButton = .show
+  var swipeRowToDelete: SwipeRowToDelete = .no
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var segmentControl: UISegmentedControl!
@@ -85,10 +86,12 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   @IBAction func segmentControlChange(_ sender: Any) {
     switch segmentControl.selectedSegmentIndex {
     case 0:
+      swipeRowToDelete = .no
       let request = SceneList.GetPhone.Request(state: .all)
       interactor.getAllData(request: request)
       
     case 1:
+      swipeRowToDelete = .yes
       let request = SceneList.GetPhone.Request(state: .favourite)
       interactor.getFavouriteData(request: request)
       
@@ -130,6 +133,7 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   
   func displayPhone(viewModel: SceneList.GetPhone.ViewModel) {
     mobileListData = viewModel.passData
+    hiddenButton = viewModel.hiddenFavouriteButton
     tableView.reloadData()
   }
   
@@ -139,7 +143,6 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
   }
   
   func displayTapSelectRow(viewModel: SceneList.TapSelectRow.ViewModel) {
-    //    print("Tap Select Row ID = \(viewModel.mobileId)")
     router.navigateToSomewhere()
   }
   
@@ -168,7 +171,7 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "phoneListViewCell", for: indexPath) as! ListViewCell
     let cellData = mobileListData[indexPath.row]
     cell.configCell(phone: cellData, favouriteId: favouriteId)
-    cell.hiddenFavouriteButton(bool: hiddenButton ?? false)
+    cell.hiddenFavouriteButton(state: hiddenButton)
     cell.favouriteButtonAction = {
       let favouriteId: Int = cellData.id
       self.interactor.setFavouritePhone(request: SceneList.TapFavourite.Request(favouriteId: favouriteId))
@@ -196,6 +199,11 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    return hiddenButton ?? false
+    if swipeRowToDelete == .yes {
+      return true
+    }else{
+      return false
+    }
   }
+  
 }

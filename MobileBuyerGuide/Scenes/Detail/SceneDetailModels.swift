@@ -21,8 +21,8 @@ struct SceneDetail {
   }
   
   struct GetDetailPhone {
-    struct Request {}
-    
+    struct Request {
+    }
     struct Response {
       let mobileDataAtRow: PhoneElement
     }
