@@ -31,14 +31,10 @@ class SceneDetailViewController: UIViewController, SceneDetailViewControllerInte
     configure(viewController: self)
   }
   
-  //  override func  viewDidLayoutSubviews() {
-  //    super.viewDidLayoutSubviews()
-  //    .collectionViewLayout.invalidateLayout()
-  //  }
-  
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     detailCollectionView.collectionViewLayout.invalidateLayout()
   }
+  
   // MARK: - Configuration
   
   private func configure(viewController: SceneDetailViewController) {
@@ -66,9 +62,7 @@ class SceneDetailViewController: UIViewController, SceneDetailViewControllerInte
   
   // MARK: - Event handling
   
-  func getImage() {
-    // NOTE: Ask the Interactor to do some work
-    
+  private func getImage() {
     let request = SceneDetail.GetImage.Request()
     interactor.getImage(request: request)
   }
@@ -120,8 +114,6 @@ extension SceneDetailViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let height = collectionView.bounds.height
     let width = collectionView.bounds.height
-    //      collectionView.bounds.height
     return CGSize(width: width, height: height)
   }
 }
-

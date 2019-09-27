@@ -30,11 +30,9 @@ class SceneDetailInteractor: SceneDetailInteractorInterface {
       case .failure(let error):
         print(error)
       }
-      
       let response = SceneDetail.GetImage.Response(responseData: self!.responseData)
       self!.presenter.presentSomething(response: response)
     }
-    
   }
   
   func getDetailPhone(request: SceneDetail.GetDetailPhone.Request) {

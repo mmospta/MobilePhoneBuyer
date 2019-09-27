@@ -12,7 +12,6 @@ protocol SceneListPresenterInterface {
   func presentPhone(response: SceneList.GetPhone.Response)
   func presentFavouriteId(response: SceneList.TapFavourite.Response)
   func presentTapSelectRow(response: SceneList.TapSelectRow.Response)
-  
 }
 
 class SceneListPresenter: SceneListPresenterInterface {

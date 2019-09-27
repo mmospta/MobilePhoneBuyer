@@ -31,32 +31,25 @@ enum SwipeRowToDelete {
   case no
 }
 
-
 struct SceneList {
-  
   struct GetPhone {
-    
     struct Request {
       let state: SegmentControlState
     }
-    
     struct Response {
       let responseData: [PhoneElement]
       let hiddenFavouriteButton: HiddenFavouriteButton
     }
-    
     struct ViewModel {
       let passData: [PhoneElement]
       let hiddenFavouriteButton: HiddenFavouriteButton
     }
   }
-
   
   struct SortPhone {
     struct Request {
       let sortType: SortType
     }
-    
   }
   
   struct TapFavourite {
@@ -79,7 +72,6 @@ struct SceneList {
       let responseData: PhoneElement
     }
     struct ViewModel {
-      
     }
   }
 }

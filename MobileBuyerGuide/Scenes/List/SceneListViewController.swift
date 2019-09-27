@@ -128,7 +128,6 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     self.present(alertController, animated: true, completion: nil)
   }
   
-  
   // MARK: - Display logic
   
   func displayPhone(viewModel: SceneList.GetPhone.ViewModel) {
@@ -146,7 +145,6 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     router.navigateToSomewhere()
   }
   
-  
   // MARK: - Router
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -158,7 +156,6 @@ class SceneListViewController: UIViewController, SceneListViewControllerInterfac
     router.passDataToNextScene(segue: segue)
   }
 }
-
 
 // MARK: Extension
 
@@ -205,5 +202,4 @@ extension SceneListViewController: UITableViewDelegate, UITableViewDataSource {
       return false
     }
   }
-  
 }

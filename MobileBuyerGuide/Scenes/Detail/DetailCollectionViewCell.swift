@@ -11,7 +11,7 @@ import Kingfisher
 
 class DetailCollectionViewCell: UICollectionViewCell {
   
-  @IBOutlet weak var phoneImageView: UIImageView!
+  @IBOutlet private weak var phoneImageView: UIImageView!
   
   func configCell(url: String)  {
     phoneImageView.kf.setImage(with: URL(string: url))    

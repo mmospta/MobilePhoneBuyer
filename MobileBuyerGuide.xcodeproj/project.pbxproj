@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30F3091748669D271EADF75D /* Pods_MobileBuyerGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFFE671A84B2EE404D59178 /* Pods_MobileBuyerGuide.framework */; };
+		8D1696F0233E15E50062972B /* SceneListPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1696EF233E15E50062972B /* SceneListPresenterTest.swift */; };
 		8D1848A1233C598300123563 /* MobileBuyerGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1848A0233C598300123563 /* MobileBuyerGuideTests.swift */; };
 		8D1848A9233C5A0B00123563 /* SceneListInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1848A8233C5A0B00123563 /* SceneListInteractorTest.swift */; };
 		8D1D2662233098670092DD8D /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D2661233098670092DD8D /* ListViewCell.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		8BFFE671A84B2EE404D59178 /* Pods_MobileBuyerGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileBuyerGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1696EF233E15E50062972B /* SceneListPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListPresenterTest.swift; sourceTree = "<group>"; };
 		8D18489E233C598300123563 /* MobileBuyerGuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileBuyerGuideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1848A0233C598300123563 /* MobileBuyerGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileBuyerGuideTests.swift; sourceTree = "<group>"; };
 		8D1848A2233C598300123563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		8D18489F233C598300123563 /* MobileBuyerGuideTests */ = {
 			isa = PBXGroup;
 			children = (
+				8D1696EF233E15E50062972B /* SceneListPresenterTest.swift */,
 				8D1848A8233C5A0B00123563 /* SceneListInteractorTest.swift */,
 				8D1848A0233C598300123563 /* MobileBuyerGuideTests.swift */,
 				8D1848A2233C598300123563 /* Info.plist */,
@@ -372,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D1696F0233E15E50062972B /* SceneListPresenterTest.swift in Sources */,
 				8D1848A1233C598300123563 /* MobileBuyerGuideTests.swift in Sources */,
 				8D1848A9233C5A0B00123563 /* SceneListInteractorTest.swift in Sources */,
 			);

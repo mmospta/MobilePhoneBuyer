@@ -65,8 +65,6 @@ class SceneListInteractor: SceneListInteractorInterface {
     presenter.presentPhone(response: response)
   }
   
-  
-  
   func sorting(sortType: SortType) -> [PhoneElement] {
     var phoneList: [PhoneElement] = []
     
@@ -91,7 +89,7 @@ class SceneListInteractor: SceneListInteractorInterface {
     }
     return phoneList
   }
-
+  
   func getSortPhone(request: SceneList.SortPhone.Request) {
     let response = SceneList.GetPhone.Response(responseData: sorting(sortType: request.sortType), hiddenFavouriteButton: hiddenFavoriteButton)
     self.presenter.presentPhone(response: response)

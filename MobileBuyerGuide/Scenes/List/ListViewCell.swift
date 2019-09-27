@@ -14,12 +14,12 @@ class ListViewCell: UITableViewCell {
   
   var favouriteButtonAction: (() -> Void)?
   
-  @IBOutlet weak var phoneImageView: UIImageView!
-  @IBOutlet weak var phoneNameLabel: UILabel!
-  @IBOutlet weak var phoneDescriptionLabel: UILabel!
-  @IBOutlet weak var priceLabel: UILabel!
-  @IBOutlet weak var ratingLabel: UILabel!
-  @IBOutlet weak var favouriteButton: UIButton!
+  @IBOutlet private weak var phoneImageView: UIImageView!
+  @IBOutlet private weak var phoneNameLabel: UILabel!
+  @IBOutlet private weak var phoneDescriptionLabel: UILabel!
+  @IBOutlet private weak var priceLabel: UILabel!
+  @IBOutlet private weak var ratingLabel: UILabel!
+  @IBOutlet private weak var favouriteButton: UIButton!
   
   
   func configCell(phone: PhoneElement, favouriteId: [Int]) {
