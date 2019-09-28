@@ -31,7 +31,7 @@ class SceneDetailInteractor: SceneDetailInteractorInterface {
         print(error)
       }
       let response = SceneDetail.GetImage.Response(responseData: self!.responseData)
-      self!.presenter.presentSomething(response: response)
+      self!.presenter.presentGetImage(response: response)
     }
   }
   
@@ -40,4 +40,3 @@ class SceneDetailInteractor: SceneDetailInteractorInterface {
     presenter.presentGetDetailPhone(response: response)
   }
 }
-
