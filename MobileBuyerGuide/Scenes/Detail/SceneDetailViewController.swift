@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SceneDetailViewControllerInterface: class {
-  func displaySomething(viewModel: SceneDetail.GetImage.ViewModel)
+  func displayImage(viewModel: SceneDetail.GetImage.ViewModel)
   func displayCollectionView(viewModel: SceneDetail.GetDetailPhone.ViewModel)
 }
 
@@ -74,7 +74,7 @@ class SceneDetailViewController: UIViewController, SceneDetailViewControllerInte
   
   // MARK: - Display logic
   
-  func displaySomething(viewModel: SceneDetail.GetImage.ViewModel) {
+  func displayImage(viewModel: SceneDetail.GetImage.ViewModel) {
     url = viewModel.url
     detailCollectionView.reloadData()
   }

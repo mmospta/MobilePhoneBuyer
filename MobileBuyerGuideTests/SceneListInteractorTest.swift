@@ -61,7 +61,7 @@ class SceneListInteractorTest: XCTestCase {
     override func getData(_ completion: @escaping (Result<[PhoneElement], APIError>) -> Void) {
       if forceFailure {
         completion(.failure(APIError.invalidJSON))
-      } else {
+      }else{
         let mockData: [PhoneElement] = [SceneListInteractorTest().mockPhoneElementData(id: 1)]
         completion(.success(mockData))
       }
@@ -257,6 +257,7 @@ class SceneListInteractorTest: XCTestCase {
   func testSetFavouritePhoneShouldAskPresenterToPresentFavouriteIdWithFalse() {
     //Given
     let id: Int = 1
+    
     let presenterSpy = SceneListPresenterSpy()
     interactor.presenter = presenterSpy
     
